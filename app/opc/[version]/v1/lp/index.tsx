@@ -5,11 +5,35 @@ import { useState, useEffect } from "react";
 import { Ban, Check, CreditCard, MonitorSmartphone, Phone } from "lucide-react";
 import Image from "next/image";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
+import { Formv1Props } from "../index";
 
-export default function LpV1() {
+export default function LpV1({
+  versaoUrl = null,
+  precoUrl: precoUrlProp = null,
+  versionParamRaw = null,
+}: Formv1Props) {
   const params = useParams();
+
+  const rawVersionParam =
+    versionParamRaw ??
+    (Array.isArray((params as any)?.version)
+      ? (params as any).version[0]
+      : ((params as any)?.version as string | undefined)) ??
+    null;
+
+  const [, priceRaw] = (rawVersionParam ?? "").split("-");
+  const parsedPrice = priceRaw ? Number(priceRaw.replace(",", ".")) : null;
+  const precoCandidate =
+    precoUrlProp ?? (Number.isFinite(parsedPrice) ? parsedPrice : null);
+
+  const precoUrl =
+    precoCandidate === 19 || precoCandidate === 47 ? precoCandidate : 47;
+  const precoDisplay = precoUrl === 19 ? "19,90" : "47";
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  const CHECKOUT_URL_PRICE_19 = "https://sf.omeugps.com.br/sf/?sfunnel=1049";
+  const CHECKOUT_URL_DEFAULT = "https://sf.omeugps.com.br/sf/?sfunnel=1063";
   const [temperatura, setTemperatura] = useState<string | null>(null);
   const [tipo, setTipo] = useState<string | null>(null);
   const [versao, setVersao] = useState<string | null>(null);
@@ -265,23 +289,33 @@ export default function LpV1() {
     }
   }, [params]);
 
-  // Função para construir a URL de redirecionamento
-  const buildRedirectUrl = () => {
-    // Construir o path base com os valores dinâmicos
-    const basePath = `/quest-opc/${params.version}`;
+  // Função para construir a URL de checkout (mantém UTMs/parâmetros atuais)
+  const buildCheckoutUrl = () => {
+    const baseUrl =
+      precoUrl === 19 ? CHECKOUT_URL_PRICE_19 : CHECKOUT_URL_DEFAULT;
+    const url = new URL(baseUrl);
 
-    // Iniciar com os parâmetros de email e telefone
-    const queryParams = new URLSearchParams();
-
-    // Adicionar UTMs se existirem
-    if (formFields) {
+    // Reaproveita todos os parâmetros atuais (UTMs etc), sem sobrescrever o sfunnel
+    if (typeof window !== "undefined") {
+      const current = new URL(window.location.href);
+      current.searchParams.forEach((value, key) => {
+        if (key === "sfunnel") return;
+        url.searchParams.set(key, value);
+      });
+    } else if (formFields) {
+      // fallback SSR-safe (caso algum dia seja executado fora do browser)
       Object.entries(formFields).forEach(([key, value]) => {
-        queryParams.append(key, value);
+        if (key === "sfunnel") return;
+        url.searchParams.set(key, value);
       });
     }
 
-    // Construir a URL completa
-    return `${basePath}?${queryParams.toString()}`;
+    return url.toString();
+  };
+
+  const redirectToCheckout = () => {
+    if (typeof window === "undefined") return;
+    window.open(buildCheckoutUrl(), "_blank", "noopener");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -353,7 +387,7 @@ export default function LpV1() {
 
       // Redirecionar após um breve delay para mostrar a mensagem de sucesso
       setTimeout(() => {
-        const redirectUrl = buildRedirectUrl();
+        const redirectUrl = buildCheckoutUrl();
         console.log("Redirecionando para:", redirectUrl);
 
         const funnels = {
@@ -391,12 +425,7 @@ export default function LpV1() {
         // }
 
         if (typeof window !== "undefined") {
-          window.history.pushState({}, "", redirectUrl);
-        }
-
-        // Usar window.location.href para navegação completa
-        if (typeof window !== "undefined") {
-          window.location.href = redirectUrl;
+          window.location.assign(redirectUrl);
         }
       }, 1500);
     }
@@ -475,7 +504,7 @@ export default function LpV1() {
       />
       <div className="max-w-5xl w-full text-white text-base font-bold flex flex-col gap-3 items-start justify-start mx-auto z-10">
         <div className="w-full sm:h-[425px] h-[200px] sm:bg-[url('/images/opc/banner-quiz-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex p-4 items-end justify-center text-white sm:text-4xl text-2xl font-bold text-center" />
-        <h1 className="text-white text-2xl font-normal text-left">
+        <h1 className="text-white text-2xl font-bold text-left">
           ⚡️ Em um dia de Experiência Imersiva, nós vamos encontrar exatamente
           o que está te travando e aumentar sua Permissão
         </h1>
@@ -500,7 +529,7 @@ export default function LpV1() {
             soluções ignora e como resolver a causa raiz, permitindo que você
             quebre o bloqueio que vem te impedindo de enriquece
           </p>
-          <h2 className="text-white text-2xl font-normal text-left">
+          <h2 className="text-white text-2xl font-bold text-left">
             1️⃣ A grande descoberta
           </h2>
           <p>
@@ -512,7 +541,7 @@ export default function LpV1() {
             Quando você descobrir como corrigir isso, atingir o sucesso, riqueza
             e poder pessoal será uma consequência inevitável
           </p>
-          <h2 className="text-white text-2xl font-normal text-left">
+          <h2 className="text-white text-2xl font-bold text-left">
             2️⃣ Diagnóstico de núcleo emocional e 4 padrões controladores
           </h2>
           <p>
@@ -529,7 +558,7 @@ export default function LpV1() {
             🎁 Esse é o momento em que dinâmicas guiadas vão acontecer e você
             terá espaço para fazer perguntas diretamente ao Elton.{" "}
           </p>
-          <h2 className="text-white text-2xl font-normal text-left">
+          <h2 className="text-white text-2xl font-bold text-left">
             3️⃣ A grande descoberta
           </h2>
           <p>
@@ -541,7 +570,7 @@ export default function LpV1() {
             Decisões que precisam ser tomadas e criar um plano de Ação para
             colocar em prática o que viu durante a imersão.{" "}
           </p>
-          <h2 className="text-white text-2xl font-normal text-left">
+          <h2 className="text-white text-2xl font-bold text-left">
             🔥 APROVEITE O DESCONTO DE 90% PARA GARANTIR A SUA VAGA NA PRÓXIMA
             EDIÇÃO:
           </h2>
@@ -610,7 +639,7 @@ export default function LpV1() {
                   WebkitTextFillColor: "transparent",
                 }}
               >
-                R$47
+                R${precoDisplay}
               </p>
               <p className="text-[#FFFFFFB3] text-xs mt-2">
                 (Cupom de 90% de desconto já aplicado)
@@ -636,8 +665,7 @@ export default function LpV1() {
                 `,
               }}
               onClick={() => {
-                const redirectUrl = buildRedirectUrl();
-                window.location.href = redirectUrl;
+                redirectToCheckout();
               }}
             >
               QUERO MEU DIAGNÓSTICO
@@ -676,6 +704,9 @@ export default function LpV1() {
               <button
                 type="submit"
                 className="w-full text-[#000] cursor-pointer text-base font-bold py-4 px-8 rounded-md transition-all duration-200 bg-gradient-to-b from-[#ECC46A] to-[#C0964B] hover:from-[#9b7a3e] hover:to-[#c0964b] uppercase tracking-wider"
+                onClick={() => {
+                  redirectToCheckout();
+                }}
               >
                 QUERO MEU DIAGNÓSTICO
               </button>

@@ -3,7 +3,7 @@
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import TagManager from "react-gtm-module";
 import { questionsOpc } from "@/lib/questions-opc";
 import { CustomInputRadio } from "@/app/components/custom-input-radio";
@@ -14,6 +14,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { phoneFormatter } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { Formv1Props } from "@/app/opc/[version]/v1";
 
 // Schema de validação para o formulário
 const formSchema = z.object({
@@ -23,7 +24,13 @@ const formSchema = z.object({
 
 type FormData = z.infer<typeof formSchema>;
 
-export default function QuestODP({ params }: { params: { form: string } }) {
+export default function QuestODP({
+  versaoUrl = null,
+  precoUrl: precoUrlProp = null,
+  versionParamRaw = null,
+}: Formv1Props) {
+  const precoUrl = precoUrlProp === 19 || precoUrlProp === 47 ? precoUrlProp : 47;
+  const params = useParams();
   const searchParams = useSearchParams();
   const INTERSTITIAL_AFTER_QUESTION_INDEX = 1; // após a 2ª pergunta (index 1), antes de ir para a 3ª
   const [answers, setAnswers] = useState<Record<number, string>>({});
@@ -49,6 +56,28 @@ export default function QuestODP({ params }: { params: { form: string } }) {
   const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [animatedCompletionPercent, setAnimatedCompletionPercent] = useState(0);
   const [showCalculatedResult, setShowCalculatedResult] = useState(false);
+
+  const versionParamEffective =
+    versionParamRaw ??
+    (Array.isArray((params as any)?.version)
+      ? (params as any).version[0]
+      : ((params as any)?.version as string | undefined)) ??
+    null;
+
+  const versionSlug = (() => {
+    // Se já vier no formato "vX-YY", preserva
+    if (typeof versionParamEffective === "string" && versionParamEffective.includes("-")) {
+      return versionParamEffective;
+    }
+
+    // Caso venha só "vX", completa com o preço (whitelist em `precoUrl`)
+    const versionOnly =
+      versaoUrl ??
+      (typeof versionParamEffective === "string" ? versionParamEffective : null) ??
+      "v1";
+
+    return `${versionOnly}-${precoUrl}`;
+  })();
 
   const questionVariants = {
     enter: (dir: 1 | -1) => ({
@@ -512,14 +541,13 @@ export default function QuestODP({ params }: { params: { form: string } }) {
                         <QuestOpcResult
                           name={leadFirstName}
                           totalScore={totalScore}
-                          urgentAreaLabel={getLabelFromAnswer(11).replace(
-                            /^[^A-Za-zÀ-ÖØ-öø-ÿ0-9]+/,
-                            ""
-                          ).trim()}
-                          motivationLabel={getLabelFromAnswer(12).replace(
-                            /^[^A-Za-zÀ-ÖØ-öø-ÿ0-9]+/,
-                            ""
-                          ).trim()}
+                          urgentAreaLabel={getLabelFromAnswer(11)
+                            .replace(/^[^A-Za-zÀ-ÖØ-öø-ÿ0-9]+/, "")
+                            .trim()}
+                          motivationLabel={getLabelFromAnswer(12)
+                            .replace(/^[^A-Za-zÀ-ÖØ-öø-ÿ0-9]+/, "")
+                            .trim()}
+                          versaoUrl={versionSlug}
                         />
                       ) : (
                         <>
@@ -538,8 +566,12 @@ export default function QuestODP({ params }: { params: { form: string } }) {
                                   ? false
                                   : { opacity: 0, y: 10 }
                               }
-                              animate={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-                              exit={shouldReduceMotion ? {} : { opacity: 0, y: -10 }}
+                              animate={
+                                shouldReduceMotion ? {} : { opacity: 1, y: 0 }
+                              }
+                              exit={
+                                shouldReduceMotion ? {} : { opacity: 0, y: -10 }
+                              }
                               transition={
                                 shouldReduceMotion
                                   ? { duration: 0 }
@@ -674,7 +706,7 @@ export default function QuestODP({ params }: { params: { form: string } }) {
                               priority={false}
                             />
 
-                            <div className="text-lg md:text-xl font-medium">
+                            <div className="text-lg md:text-xl font-bold">
                               Mais de 156 mil pessoas já fizeram esse
                               Diagnóstico para entender o que as impedia de
                               conquistar mais resultados. Chegou a sua vez!
@@ -717,7 +749,7 @@ export default function QuestODP({ params }: { params: { form: string } }) {
                           </h3>
 
                           {currentQuestionData.description && (
-                            <p className="text-[#FFFFFFB3] text-sm font-medium mb-4 md:mb-5 md:text-left text-center z-50 relative">
+                            <p className="text-[#FFFFFFB3] text-[14px]/[20px] font-medium mb-4 md:mb-5 md:text-left text-center z-50 relative">
                               {currentQuestionData.description}
                             </p>
                           )}

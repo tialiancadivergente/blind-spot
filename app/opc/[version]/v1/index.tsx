@@ -6,13 +6,24 @@ import { Ban, CreditCard, MonitorSmartphone, Phone } from "lucide-react";
 import Image from "next/image";
 import { useParams, useSearchParams, useRouter } from "next/navigation";
 
-export default function Formv1() {
+export type Formv1Props = {
+  versaoUrl?: string | null;
+  precoUrl?: number | null;
+  versionParamRaw?: string | null;
+};
+
+export default function Formv1({
+  versaoUrl = null,
+  precoUrl: precoUrlProp = null,
+  versionParamRaw = null,
+}: Formv1Props) {
+  const precoUrl = precoUrlProp === 19 || precoUrlProp === 47 ? precoUrlProp : 47;
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
   const [temperatura, setTemperatura] = useState<string | null>(null);
   const [tipo, setTipo] = useState<string | null>(null);
-  const [versao, setVersao] = useState<string | null>(null);
+  const [versao, setVersao] = useState<string | null>(versaoUrl);
   const [formFields, setFormFields] = useState<Record<string, string> | null>(
     null
   );
@@ -31,6 +42,26 @@ export default function Formv1() {
   const [isPicture, setIsPicture] = useState(false);
 
   const fullUrl = Object.values(params).flat().join("/");
+  const versionParamEffective =
+    versionParamRaw ??
+    (Array.isArray((params as any)?.version)
+      ? (params as any).version[0]
+      : ((params as any)?.version as string | undefined)) ??
+    null;
+  const versionSlug = (() => {
+    // Se já vier no formato "vX-YY", preserva
+    if (typeof versionParamEffective === "string" && versionParamEffective.includes("-")) {
+      return versionParamEffective;
+    }
+
+    // Caso venha só "vX", completa com o preço (whitelist em `precoUrl`)
+    const versionOnly =
+      versaoUrl ??
+      (typeof versionParamEffective === "string" ? versionParamEffective : null) ??
+      "v1";
+
+    return `${versionOnly}-${precoUrl}`;
+  })();
 
   const launch = "[ODP] 2025";
 
@@ -212,7 +243,7 @@ export default function Formv1() {
     if (params && params.temperature) {
       console.log("temperatura param", params.temperature);
       let tipoValue = params.headline;
-      const versaoValue = params.version;
+      const versaoValue = versaoUrl ?? params.version;
       const temperaturaValue = params.temperature;
       const isDarkValue = params.theme;
 
@@ -260,7 +291,7 @@ export default function Formv1() {
       console.log("Temperatura:", temperaturaValue);
 
       setTipo(tipoValue);
-      setVersao(versaoValue as string);
+      setVersao((versaoValue as string) ?? null);
       setTemperatura(temperaturaValue as string);
     }
   }, [params]);
@@ -268,7 +299,7 @@ export default function Formv1() {
   // Função para construir a URL de redirecionamento
   const buildRedirectUrl = () => {
     // Construir o path base com os valores dinâmicos
-    const basePath = `/quest-opc/${params.version}`;
+    const basePath = `/quest-opc/${versionSlug}`;
 
     // Iniciar com os parâmetros de email e telefone
     const queryParams = new URLSearchParams();
@@ -306,6 +337,10 @@ export default function Formv1() {
         path: window.location.pathname,
       };
 
+      if (precoUrl != null) {
+        payload.price = precoUrl;
+      }
+
       // Adicionar formFields ao payload apenas se existir
       if (formFields) {
         payload.formFields = formFields;
@@ -335,6 +370,10 @@ export default function Formv1() {
         parametroCompleto: fullUrl,
         date: new Date().toISOString(),
       };
+
+      if (precoUrl != null) {
+        leadData.price = precoUrl;
+      }
 
       // Adicionar formFields aos dados do localStorage apenas se existir
       if (formFields) {
@@ -474,17 +513,17 @@ export default function Formv1() {
         className="object-contain z-10 sm:w-[100px] sm:h-[100px] w-[70px] relative"
       />
       <div className="max-w-5xl w-full text-white text-2xl font-bold flex flex-col gap-3 items-center justify-center mx-auto z-10">
-        <div className="w-full sm:h-[425px] h-[200px] sm:bg-[url('/images/opc/banner-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex p-4 items-end justify-center text-white sm:text-4xl text-2xl font-bold text-center">
+        <div className="w-full sm:h-[425px] h-[200px] sm:bg-[url('/images/opc/banner-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex items-end justify-start text-white sm:text-4xl text-2xl font-bold text-left">
           <p>
-            TESTE GRATUITO DE <br /> NÍVEL DE
+            TESTE GRATUITO DE <br /> NÍVEL DE {precoUrl}
             <span className="text-[#C0964B]"> PERMISSÃO</span>
           </p>
         </div>
-        <h1 className="text-white sm:text-4xl text-2xl font-normal text-center">
+        <h1 className="text-white sm:text-4xl text-2xl font-normal text-left">
           Ou você <span className="font-bold">aumenta sua Permissão</span>. Ou
           diminui o tamanho dos seus sonhos e objetivos.
         </h1>
-        <div className="text-[#FFFFFFB3] text-center font-normal sm:text-[20px] text-[16px] flex flex-col gap-6">
+        <div className="text-[#FFFFFFB3] text-left font-normal sm:text-[20px]/[28px] text-[16px]/[24px] flex flex-col gap-6">
           <p>
             <span className="font-bold">
               Faça o teste para descobrir o seu nível de Permissão

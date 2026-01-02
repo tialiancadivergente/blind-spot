@@ -6,6 +6,7 @@ import type React from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 type QuestOpcResultProps = {
+  versaoUrl: string | null;
   name: string;
   totalScore: number;
   urgentAreaLabel?: string;
@@ -125,6 +126,7 @@ function getResultByScore(score: number): QuestOpcScoreResult {
 }
 
 export function QuestOpcResult({
+  versaoUrl,
   name,
   totalScore,
   urgentAreaLabel = "",
@@ -141,7 +143,7 @@ export function QuestOpcResult({
 
   const handleGoToLp = () => {
     const qs = searchParams?.toString();
-    const href = qs ? `/opc/v1/lp?${qs}` : "/opc/v1/lp";
+    const href = qs ? `/opc/${versaoUrl}/lp?${qs}` : `/opc/${versaoUrl}/lp`;
     router.push(href);
   };
 
@@ -171,7 +173,7 @@ export function QuestOpcResult({
         <div className="text-[#ECC46A] text-4xl md:text-5xl font-extrabold text-center">
           {resultLabel}
         </div>
-        <div className="text-[#FFFFFFB3] text-sm md:text-base text-center">
+        <div className="text-[#FFFFFFB3] text-[14px]/[20px] md:text-base text-center">
           {percentRangeLabel}
         </div>
         <Image
