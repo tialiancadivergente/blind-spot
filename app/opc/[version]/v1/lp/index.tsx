@@ -33,7 +33,7 @@ export default function LpV1({
   const router = useRouter();
 
   const CHECKOUT_URL_PRICE_19 = "https://sf.omeugps.com.br/sf/?sfunnel=1049";
-  const CHECKOUT_URL_DEFAULT = "https://sf.omeugps.com.br/sf/?sfunnel=1063";
+  const CHECKOUT_URL_DEFAULT = "https://sf.omeugps.com.br/sf/?sfunnel=1065";
   const [temperatura, setTemperatura] = useState<string | null>(null);
   const [tipo, setTipo] = useState<string | null>(null);
   const [versao, setVersao] = useState<string | null>(null);
@@ -477,15 +477,22 @@ export default function LpV1({
   return (
     <section
       id="hero"
-      className={`relative min-h-[100vh] flex flex-col sm:bg-[url('/images/opc/bg.webp')] bg-no-repeat sm:bg-right-top overflow-hidden sm:bg-[#0E1113] bg-[#000C14] z-0 w-full sm:px-20 px-4 py-6 gap-4`}
+      className={`relative min-h-[100vh] flex flex-col sm:bg-[url('/images/opc/bg.webp')] bg-no-repeat sm:bg-right-top overflow-hidden sm:bg-[#0E1113] bg-[#0E1113] z-0 w-full sm:px-20 px-4 py-6 gap-4`}
     >
       <div className="absolute top-0 left-0 w-full h-full">
         <Image
           src="/images/opc/banner-quiz-ponto-cego.webp"
           alt="Banner Quiz Ponto Cego"
-          width={1936}
-          height={804}
+          width={1920}
+          height={1080}
           className="object-cover min-h-[265px] sm:hidden z-0"
+        />
+        <div
+          className="absolute inset-0 z-100 pointer-events-none hidden sm:block"
+          style={{
+            background:
+              "linear-gradient(90deg, rgba(0,12,20,0.80) 0%, rgba(0,12,20,0.0) 40%, rgba(0,12,20,0.0) 60%, rgba(0,12,20,0.80) 100%)",
+          }}
         />
         <div
           className="pointer-events-none absolute inset-0 z-10 sm:hidden"
@@ -503,7 +510,16 @@ export default function LpV1({
         className="object-contain z-10 sm:w-[100px] sm:h-[100px] w-[70px] relative"
       />
       <div className="max-w-5xl w-full text-white text-base font-bold flex flex-col gap-3 items-start justify-start mx-auto z-10">
-        <div className="w-full sm:h-[425px] h-[200px] sm:bg-[url('/images/opc/banner-quiz-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex p-4 items-end justify-center text-white sm:text-4xl text-2xl font-bold text-center" />
+        <div className="relative w-full sm:h-[800px] h-[200px]">
+          <div className="w-full h-full absolute inset-0 z-0 sm:bg-[url('/images/opc/banner-quiz-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex items-end justify-start text-white sm:text-4xl text-2xl font-bold text-left" />
+          <div
+            className="absolute inset-0 z-10 pointer-events-none hidden sm:block"
+            style={{
+              background:
+                "linear-gradient(90deg, rgba(14,17,19,0.80) 0%, rgba(14,17,19,0.0) 40%, rgba(14,17,19,0.0) 60%, rgba(14,17,19,0.80) 100%)",
+            }}
+          />
+        </div>
         <h1 className="text-white text-2xl font-bold text-left">
           ⚡️ Em um dia de Experiência Imersiva, nós vamos encontrar exatamente
           o que está te travando e aumentar sua Permissão

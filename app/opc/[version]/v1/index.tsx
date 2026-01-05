@@ -515,7 +515,7 @@ export default function Formv1({
       <div className="max-w-5xl w-full text-white text-2xl font-bold flex flex-col gap-3 items-center justify-center mx-auto z-10">
         <div className="w-full sm:h-[425px] h-[200px] sm:bg-[url('/images/opc/banner-ponto-cego.webp')] bg-no-repeat bg-top bg-cover overflow-hidden flex items-end justify-start text-white sm:text-4xl text-2xl font-bold text-left">
           <p>
-            TESTE GRATUITO DE <br /> NÍVEL DE {precoUrl}
+            TESTE GRATUITO DE <br /> NÍVEL DE
             <span className="text-[#C0964B]"> PERMISSÃO</span>
           </p>
         </div>
