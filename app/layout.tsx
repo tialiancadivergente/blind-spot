@@ -30,8 +30,8 @@ const specialElite = Special_Elite({
 
 export const metadata: Metadata = {
   title:
-    "O Fim das Relações Ruins - o método que poupa seu tempo e te conecta com o parceiro ideal",
-  description: "Comprovado por mais de 53 mil mulheres.",
+    "Teste Gratuito de Nível de Permissão – descubra os bloqueios que te impedem de conquistar mais resultados.",
+  description: "Aprovado por mais de 156 mil pessoas",
   icons: {
     icon: "/images/cropped-Alianca-Divergente-Logotipo-Favicon-32x32.png",
     shortcut: "/images/cropped-Alianca-Divergente-Logotipo-Favicon-32x32.png",
