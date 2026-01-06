@@ -15,7 +15,7 @@ const GoogleTagManager = () => {
         const subdomain = hostname.split('.')[0];
         
         // Define o GTM ID baseado no subdomínio
-        const gtmId = subdomain === 'odpr' ? 'GTM-KQWLTDD' : 'GTM-WNV8FX9J';
+        const gtmId = subdomain === 'opcr' ? 'GTM-KL8GTFZ' : 'GTM-KL8GTFZ';
         
         console.log('subdomain ====> ', subdomain);
         console.log('gtmId ====> ', gtmId);
