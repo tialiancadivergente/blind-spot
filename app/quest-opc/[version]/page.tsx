@@ -3,7 +3,7 @@
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { useParams, useSearchParams } from "next/navigation";
+import { useParams, useSearchParams, useRouter } from "next/navigation";
 import TagManager from "react-gtm-module";
 import { questionsOpc } from "@/lib/questions-opc";
 import { CustomInputRadio } from "@/app/components/custom-input-radio";
@@ -20,6 +20,7 @@ import { Formv1Props } from "@/app/opc/[version]/v1";
 const formSchema = z.object({
   nome: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
   email: z.string().email("Email inválido"),
+  celular: z.string().min(15, "Celular inválido"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -32,6 +33,7 @@ export default function QuestODP({
   const precoUrl = precoUrlProp === 19 || precoUrlProp === 47 ? precoUrlProp : 47;
   const params = useParams();
   const searchParams = useSearchParams();
+  const router = useRouter();
   const INTERSTITIAL_AFTER_QUESTION_INDEX = 1; // após a 2ª pergunta (index 1), antes de ir para a 3ª
   const [answers, setAnswers] = useState<Record<number, string>>({});
   const [weights, setWeights] = useState<Record<number, number>>({});
@@ -377,6 +379,15 @@ export default function QuestODP({
   };
 
   const onSubmit = async (data: FormData) => {
+    // Persistir os dados do formulário na URL (pra serem reaproveitados no próximo passo/LP)
+    const qs = new URLSearchParams(searchParams?.toString() || "");
+    qs.set("email", data.email);
+    qs.set("name", data.nome);
+    qs.set("phoneac", String(data.celular).replace(/\D/g, ""));
+    router.replace(`/quest-opc/${versionSlug}?${qs.toString()}`, {
+      scroll: false,
+    });
+
     setLeadFirstName(capitalizeFirstName(data.nome));
     setShowForm(false);
   };
@@ -658,6 +669,27 @@ export default function QuestODP({
                           {errors.nome && (
                             <p className="text-red-300 text-sm mt-1">
                               {errors.nome.message}
+                            </p>
+                          )}
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="celular"
+                            className="block text-white text-sm font-medium mb-2"
+                          >
+                            Preencha seu celular *
+                          </label>
+                          <input
+                            {...register("celular")}  
+                            type="tel"
+                            id="celular"
+                            className="w-full px-4 py-3 rounded-lg bg-[#0a1a1f] border border-[#C0964B] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C0964B] focus:border-transparent"
+                            placeholder="(99) 99999-9999"
+                            required={false}
+                          />
+                          {errors.celular && (
+                            <p className="text-red-300 text-sm mt-1">
+                              {errors.celular.message}
                             </p>
                           )}
                         </div>
