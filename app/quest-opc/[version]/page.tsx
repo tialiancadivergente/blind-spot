@@ -9,18 +9,22 @@ import { questionsOpc } from "@/lib/questions-opc";
 import { CustomInputRadio } from "@/app/components/custom-input-radio";
 import { QuestOpcResult } from "@/app/components/QuestOpcResult";
 import { Progress } from "@/components/ui/progress";
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { phoneFormatter } from "@/lib/utils";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Formv1Props } from "@/app/opc/[version]/v1";
+import { PhoneMaskInput } from "@/app/components/PhoneMaskInput";
+import { onlyDigits } from "@/lib/phone-mask";
 
 // Schema de validação para o formulário
 const formSchema = z.object({
   nome: z.string().min(2, "Nome deve ter pelo menos 2 caracteres"),
   email: z.string().email("Email inválido"),
-  celular: z.string().min(15, "Celular inválido"),
+  celular: z
+    .string()
+    .transform((v) => onlyDigits(v))
+    .refine((v) => v.length === 10 || v.length === 11, "Celular inválido"),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -154,6 +158,7 @@ export default function QuestODP({
     formState: { errors, isSubmitting: isFormSubmitting },
     reset,
     setValue,
+    control,
   } = useForm<FormData>({
     resolver: zodResolver(formSchema),
   });
@@ -679,13 +684,19 @@ export default function QuestODP({
                           >
                             Preencha seu celular *
                           </label>
-                          <input
-                            {...register("celular")}  
-                            type="tel"
-                            id="celular"
-                            className="w-full px-4 py-3 rounded-lg bg-[#0a1a1f] border border-[#C0964B] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C0964B] focus:border-transparent"
-                            placeholder="(99) 99999-9999"
-                            required={false}
+                          <Controller
+                            name="celular"
+                            control={control}
+                            render={({ field }) => (
+                              <PhoneMaskInput
+                                  {...field}
+                                  value={field.value ?? ""}
+                                id="celular"
+                                className="w-full px-4 py-3 rounded-lg bg-[#0a1a1f] border border-[#C0964B] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C0964B] focus:border-transparent"
+                                placeholder="(99) 99999-9999"
+                                required={false}
+                              />
+                            )}
                           />
                           {errors.celular && (
                             <p className="text-red-300 text-sm mt-1">
