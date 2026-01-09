@@ -284,7 +284,19 @@ export default function QuestODP({
 
   // Função auxiliar para determinar a faixa com base no score
   const getFaixa = (score: number): string => {
-    return score > 21 ? "Faixa M" : "Faixa B";
+    if (score <= 14) {
+      return "MUITO BAIXO";
+    }
+    if (score >= 15 && score <= 20) {
+      return "BAIXO";
+    }
+    if (score >= 21 && score <= 26) {
+      return "MÉDIO";
+    }
+    if (score >= 27 && score <= 33) {
+      return "ALTO";
+    }
+    return "MUITO ALTO";
   };
 
   // Função auxiliar para obter a URL base de redirecionamento
@@ -340,7 +352,7 @@ export default function QuestODP({
   const sendToGTM = (gtmData: Record<string, any>) => {
     TagManager.dataLayer?.({
       dataLayer: {
-        event: "leadscore",
+        event: "bld-leadscore",
         ...gtmData,
       },
     });
@@ -392,6 +404,20 @@ export default function QuestODP({
     router.replace(`/quest-opc/${versionSlug}?${qs.toString()}`, {
       scroll: false,
     });
+
+    const faixa = getFaixa(totalScore);
+
+    const gtmData = {
+      email: data.email,
+      name: data.nome,
+      phoneac: String(data.celular).replace(/\D/g, ""),
+      answers: answers,
+      totalScore: Math.round(totalScore),
+      faixa: faixa,
+      version: versao,
+    };
+
+    sendToGTM(gtmData);
 
     setLeadFirstName(capitalizeFirstName(data.nome));
     setShowForm(false);
