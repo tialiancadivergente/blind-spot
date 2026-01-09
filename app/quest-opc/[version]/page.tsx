@@ -370,7 +370,7 @@ export default function QuestODP({
   const sendToGTM = (gtmData: Record<string, any>) => {
     TagManager.dataLayer?.({
       dataLayer: {
-        event: "bld-leadscore",
+        event: "InitiateCheckout",
         ...gtmData,
       },
     });
