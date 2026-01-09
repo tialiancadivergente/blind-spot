@@ -16,6 +16,16 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Formv1Props } from "@/app/opc/[version]/v1";
 import { PhoneMaskInput } from "@/app/components/PhoneMaskInput";
 import { onlyDigits } from "@/lib/phone-mask";
+import { sendLeadTracking } from "@/lib/tracking/leadTracking";
+import {
+  TRACKING_GA_PROPERTY_ID,
+  TRACKING_LEADSCORE_RESPONSES_WEBHOOK,
+  TRACKING_LEADSCORE_SUMMARY_WEBHOOK,
+  TRACKING_LEADSCORE_EVENT_ID,
+  TRACKING_LEADSCORE_EVENT_NAME,
+} from "@/lib/config/tracking";
+import useUserIP from "@/app/hooks/useUserIP";
+import { sendLeadScoreTracking } from "@/lib/tracking/leadScoreTracking";
 
 // Schema de validação para o formulário
 const formSchema = z.object({
@@ -34,7 +44,8 @@ export default function QuestODP({
   precoUrl: precoUrlProp = null,
   versionParamRaw = null,
 }: Formv1Props) {
-  const precoUrl = precoUrlProp === 19 || precoUrlProp === 47 ? precoUrlProp : 47;
+  const precoUrl =
+    precoUrlProp === 19 || precoUrlProp === 47 ? precoUrlProp : 47;
   const params = useParams();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -62,6 +73,8 @@ export default function QuestODP({
   const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [animatedCompletionPercent, setAnimatedCompletionPercent] = useState(0);
   const [showCalculatedResult, setShowCalculatedResult] = useState(false);
+  
+  const userIp = useUserIP();
 
   const versionParamEffective =
     versionParamRaw ??
@@ -72,14 +85,19 @@ export default function QuestODP({
 
   const versionSlug = (() => {
     // Se já vier no formato "vX-YY", preserva
-    if (typeof versionParamEffective === "string" && versionParamEffective.includes("-")) {
+    if (
+      typeof versionParamEffective === "string" &&
+      versionParamEffective.includes("-")
+    ) {
       return versionParamEffective;
     }
 
     // Caso venha só "vX", completa com o preço (whitelist em `precoUrl`)
     const versionOnly =
       versaoUrl ??
-      (typeof versionParamEffective === "string" ? versionParamEffective : null) ??
+      (typeof versionParamEffective === "string"
+        ? versionParamEffective
+        : null) ??
       "v1";
 
     return `${versionOnly}-${precoUrl}`;
@@ -419,6 +437,50 @@ export default function QuestODP({
 
     sendToGTM(gtmData);
 
+    const eventId = TRACKING_LEADSCORE_EVENT_ID || `${Date.now()}.${Math.random().toString().slice(2, 8)}`;
+
+    try {
+      await sendLeadTracking(
+        {
+          baseUrl: TRACKING_LEADSCORE_SUMMARY_WEBHOOK,
+          eventName: TRACKING_LEADSCORE_EVENT_NAME,
+          eventId,
+          gaPropertyId: TRACKING_GA_PROPERTY_ID,
+        },
+        {
+          leadEmail: data.email,
+          leadPhone: String(data.celular).replace(/\D/g, ""),
+          ipAddress: userIp ?? null,
+          extraParams: {
+            faixa,
+            totalScore: totalScore.toFixed(1),
+            version: versao ?? undefined,
+            domain,
+            launch,
+            path: window.location.pathname,
+          },
+        }
+      );
+    } catch (error) {
+      console.error("Erro ao enviar leadscore resumo:", error);
+    }
+
+    try {
+      await sendLeadScoreTracking({
+        baseUrl: TRACKING_LEADSCORE_RESPONSES_WEBHOOK,
+        gaPropertyId: TRACKING_GA_PROPERTY_ID,
+        answers: Object.values(answers),
+        extras: {
+          email: data.email,
+          phone: String(data.celular).replace(/\D/g, ""),
+          faixa,
+          totalScore: Number(totalScore.toFixed(1)),
+        },
+      });
+    } catch (error) {
+      console.error("Erro ao enviar leadscore tracking:", error);
+    }
+
     setLeadFirstName(capitalizeFirstName(data.nome));
     setShowForm(false);
   };
@@ -715,8 +777,8 @@ export default function QuestODP({
                             control={control}
                             render={({ field }) => (
                               <PhoneMaskInput
-                                  {...field}
-                                  value={field.value ?? ""}
+                                {...field}
+                                value={field.value ?? ""}
                                 id="celular"
                                 className="w-full px-4 py-3 rounded-lg bg-[#0a1a1f] border border-[#C0964B] text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#C0964B] focus:border-transparent"
                                 placeholder="(99) 99999-9999"
