@@ -21,7 +21,10 @@ export default function LpV1({
       : ((params as any)?.version as string | undefined)) ??
     null;
 
-  const [, priceRaw] = (rawVersionParam ?? "").split("-");
+  const versionParts = (rawVersionParam ?? "").split("-");
+  const priceRaw = versionParts[1];
+  const sgSuffix =
+    versionParts[versionParts.length - 1]?.toLowerCase() === "sg" ? "sg" : null;
   const parsedPrice = priceRaw ? Number(priceRaw.replace(",", ".")) : null;
   const precoCandidate =
     precoUrlProp ?? (Number.isFinite(parsedPrice) ? parsedPrice : null);
@@ -32,8 +35,9 @@ export default function LpV1({
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const CHECKOUT_URL_PRICE_19 = "https://sf.omeugps.com.br/sf/?sfunnel=1049";
   const CHECKOUT_URL_DEFAULT = "https://sf.omeugps.com.br/sf/?sfunnel=1065";
+  const CHECKOUT_URL_PRICE_19 = "https://sf.omeugps.com.br/sf/?sfunnel=1049";
+  const CHECKOUT_URL_PRICE_47_sg = "https://sf.omeugps.com.br/sf/?sfunnel=1120";
   const [temperatura, setTemperatura] = useState<string | null>(null);
   const [tipo, setTipo] = useState<string | null>(null);
   const [versao, setVersao] = useState<string | null>(null);
@@ -292,7 +296,11 @@ export default function LpV1({
   // Função para construir a URL de checkout (mantém UTMs/parâmetros atuais)
   const buildCheckoutUrl = () => {
     const baseUrl =
-      precoUrl === 19 ? CHECKOUT_URL_PRICE_19 : CHECKOUT_URL_DEFAULT;
+      precoUrl === 19
+        ? CHECKOUT_URL_PRICE_19
+        : sgSuffix
+          ? CHECKOUT_URL_PRICE_47_sg
+          : CHECKOUT_URL_DEFAULT;
     const url = new URL(baseUrl);
 
     // Reaproveita todos os parâmetros atuais (UTMs etc), sem sobrescrever o sfunnel
