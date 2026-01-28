@@ -283,10 +283,6 @@ export default function LpV1({
         setIsLogo(_isLogo);
       }
 
-      console.log("Tipo:", tipoValue);
-      console.log("Versão:", versaoValue);
-      console.log("Temperatura:", temperaturaValue);
-
       setTipo(tipoValue);
       setVersao(versaoValue as string);
       setTemperatura(temperaturaValue as string);
@@ -310,12 +306,47 @@ export default function LpV1({
         if (key === "sfunnel") return;
         url.searchParams.set(key, value);
       });
+
+      // Adiciona o parâmetro sck no formato:
+      // /path|utm_source|utm_medium|utm_campaign|utm_name|utm_term|utm_content|utm_id
+      // (quando uma UTM não existir, mantém o campo vazio, gerando ||)
+      const utmKeysForSck = [
+        "utm_source",
+        "utm_medium",
+        "utm_content",
+        "utm_campaign",
+        "utm_term",
+        "utm_id",
+      ] as const;
+
+      const sck = [
+        window.location.pathname,
+        ...utmKeysForSck.map((k) => current.searchParams.get(k) ?? ""),
+      ].join("|");
+
+      url.searchParams.set("sck", sck);
     } else if (formFields) {
       // fallback SSR-safe (caso algum dia seja executado fora do browser)
       Object.entries(formFields).forEach(([key, value]) => {
         if (key === "sfunnel") return;
         url.searchParams.set(key, value);
       });
+
+      const utmKeysForSck = [
+        "utm_source",
+        "utm_medium",
+        "utm_content",
+        "utm_campaign",
+        "utm_term",
+        "utm_id",
+      ] as const;
+
+      const sck = [
+        `/${fullUrl}`,
+        ...utmKeysForSck.map((k) => formFields?.[k] ?? ""),
+      ].join("|");
+
+      url.searchParams.set("sck", sck);
     }
 
     return url.toString();
