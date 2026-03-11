@@ -3,6 +3,7 @@
 import SplashScreenOdp from "@/app/components/SplashScreenOdp";
 import { useParams } from "next/navigation";
 import Formv1 from "./v1";
+import Formv2 from "./v2/index";
 
 export default function Home() {
   const params = useParams() as { version?: string | string[] };
@@ -13,6 +14,14 @@ export default function Home() {
 
   const [versaoUrl, precoUrlRaw] = (rawVersionParam ?? "").split("-");
   const precoUrl = precoUrlRaw ? Number(precoUrlRaw.replace(",", ".")) : null;
+
+  if (versaoUrl === "v2") {
+    return (
+      <SplashScreenOdp>
+        <Formv2 />
+      </SplashScreenOdp>
+    );
+  }
 
   return (
     <SplashScreenOdp>
