@@ -35,7 +35,7 @@ export default function HeroSection() {
 					width={142}
 					height={58}
 					priority
-					className="absolute left-[32px] top-[288px] h-auto w-[141px] md:hidden"
+					className="absolute left-[32px] top-[315px] h-auto w-[141px] md:hidden"
 				/>
 
 				<Image
@@ -47,19 +47,21 @@ export default function HeroSection() {
 					className="absolute left-[70px] top-[34px] hidden h-auto w-[100px] md:block"
 				/>
 
-				<div className="absolute left-[32px] top-[370px] flex w-[296px] flex-col items-start md:left-[70px] md:top-[92px] md:w-[550px]">
+				<div className="absolute left-[32px] top-[430px] flex w-[296px] flex-col items-start md:left-[70px] md:top-[115px] md:w-[550px]">
 					<h1
 						id="primeira-dobra-titulo"
 						className="w-full font-raleway text-[22px] font-extrabold leading-[28px] tracking-normal text-white md:text-[36px] md:leading-[45px]"
 					>
-						Em apenas 1 dia, descubra o Ponto Cego que está impedindo você de{" "}
+						Em apenas 1 dia,{" "}
 						<span className="text-[#F0CB6D]">
-							ganhar mais, crescer na carreira e conquistar sua independência financeira.
+							descubra como ganhar mais
 						</span>
+						, crescer na carreira e melhorar a sua vida financeira.
 					</h1>
 
 					<p className="mt-[16px] w-full font-raleway text-[15px] font-medium leading-[22px] tracking-normal text-white md:mt-[20px] md:max-w-[540px] md:text-[19px] md:leading-[29px]">
-						Sem trocar de profissão, sem começar tudo de novo, sem continuar repetindo os mesmos resultados.
+						Sem trocar de profissão, sem mais cursos, sem continuar
+						repetindo os mesmos resultados
 					</p>
 
 					<Link

@@ -1,12 +1,18 @@
 "use client";
 
+import Link from "next/link";
+
 const buttonClass = "flex h-[44px] items-center justify-center rounded-[50px] border-x border-y-0 border-solid border-[#25D366] px-[10px] font-raleway text-[16px] font-bold leading-[24px] text-white shadow-[0_-0.14px_1.92px_#25D36626,0_-0.35px_4.86px_#25D36636,0_-0.71px_9.92px_#25D36644,0_-1.46px_20.44px_#25D36654,0_-4px_56px_#25D3667A]";
 
 function AccessButton({ className }: { className: string }) {
 	return (
-		<button type="button" className={`${buttonClass} ${className}`} style={{ background: "radial-gradient(83.8% 393.52% at 45.2% 7.95%, #25D366 0%, rgba(37,211,102,0) 100%), linear-gradient(0deg,#015E53,#015E53)" }}>
+		<Link
+			href="https://pay.hotmart.com/T101582944K?checkoutMode=10"
+			className={`${buttonClass} ${className}`}
+			style={{ background: "radial-gradient(83.8% 393.52% at 45.2% 7.95%, #25D366 0%, rgba(37,211,102,0) 100%), linear-gradient(0deg,#015E53,#015E53)" }}
+		>
 			LIBERAR ACESSO
-		</button>
+		</Link>
 	);
 }
 

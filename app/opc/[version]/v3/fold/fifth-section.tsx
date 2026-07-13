@@ -93,9 +93,7 @@ function CarouselBlock({
 									type="button"
 									onClick={() => setActiveSlide(index)}
 									className={`h-2 w-2 rounded-full transition-all ${
-										activeSlide === index
-											? "bg-[#DBB658]"
-											: "bg-[#FFFFFF66]"
+										activeSlide === index ? "bg-[#DBB658]" : "bg-[#FFFFFF66]"
 									}`}
 									aria-label={`Ir para imagem ${index + 1}`}
 								/>
@@ -106,7 +104,7 @@ function CarouselBlock({
 			)}
 
 			<div className="flex w-full flex-col items-center">
-				<p className="font-roboto text-center text-[12px] font-bold uppercase leading-[22px] text-white">
+				<p className="text-center font-roboto text-[12px] font-bold uppercase leading-[22px] text-white">
 					{title}
 				</p>
 
@@ -116,11 +114,11 @@ function CarouselBlock({
 					className="mt-1 flex items-center justify-center gap-3"
 					aria-label={isOpen ? "Fechar carrossel" : "Abrir carrossel"}
 				>
-					<span className="hidden font-epilogue text-center text-[24px] font-bold leading-[30px] text-[#DBB658] md:inline">
+					<span className="hidden text-center font-epilogue text-[24px] font-bold leading-[30px] text-[#DBB658] md:inline">
 						{subtitle}
 					</span>
 
-					<span className="font-epilogue text-center text-[22px] font-bold leading-[38px] text-[#DBB658] md:hidden">
+					<span className="text-center font-epilogue text-[22px] font-bold leading-[38px] text-[#DBB658] md:hidden">
 						{mobileSubtitle ?? subtitle}
 					</span>
 
@@ -191,7 +189,7 @@ function StaticImagesBlock({
 			)}
 
 			<div className="flex w-full flex-col items-center">
-				<p className="font-roboto text-center text-[12px] font-bold uppercase leading-[22px] text-white">
+				<p className="text-center font-roboto text-[12px] font-bold uppercase leading-[22px] text-white">
 					{title}
 				</p>
 
@@ -201,11 +199,11 @@ function StaticImagesBlock({
 					className="mt-1 flex items-center justify-center gap-3"
 					aria-label={isOpen ? "Fechar imagens" : "Abrir imagens"}
 				>
-					<span className="hidden font-epilogue text-center text-[24px] font-bold leading-[30px] text-[#DBB658] md:inline">
+					<span className="hidden text-center font-epilogue text-[24px] font-bold leading-[30px] text-[#DBB658] md:inline">
 						{subtitle}
 					</span>
 
-					<span className="font-epilogue text-center text-[22px] font-bold leading-[38px] text-[#DBB658] md:hidden">
+					<span className="text-center font-epilogue text-[22px] font-bold leading-[38px] text-[#DBB658] md:hidden">
 						{mobileSubtitle ?? subtitle}
 					</span>
 

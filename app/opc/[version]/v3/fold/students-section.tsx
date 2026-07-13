@@ -95,8 +95,7 @@ export default function StudentsSection() {
 					<span className="text-[#010D15]"> é um quartinho escuro</span>
 					<br className="hidden md:block" />
 					<span className="text-[#010D15]">
-						{" "}
-						onde mora o seu mundo relacional.
+						{" "}onde mora o seu mundo relacional.
 					</span>
 				</h2>
 
@@ -104,8 +103,7 @@ export default function StudentsSection() {
 					<p>
 						Onde moram as questões e bloqueios mais profundos, que insistem
 						<br className="hidden md:block" />
-						{" "}
-						em te prender a circunstâncias, pessoas e na busca pelo sucesso.
+						{" "}em te prender a circunstâncias, pessoas e na busca pelo sucesso.
 					</p>
 
 					<p>Vai ser fácil enxergar esse lugar? Não...</p>
@@ -115,8 +113,7 @@ export default function StudentsSection() {
 					<p>
 						Ao remover essa "sujeira" do seu núcleo emocional, você
 						<br className="hidden md:block" />
-						{" "}
-						finalmente terá Permissão para ser, agir e ter o que quiser.
+						{" "}finalmente terá Permissão para ser, agir e ter o que quiser.
 					</p>
 
 					<p>Assim como aconteceu com a...</p>
@@ -137,7 +134,6 @@ export default function StudentsSection() {
 						p-[10px]
 						transition-all hover:brightness-110
 						mx-auto
-
 						md:mt-[24px] md:w-[250px] md:h-[44px]
 					"
 					style={{
@@ -244,10 +240,9 @@ export default function StudentsSection() {
 							<br />
 							merecimento, mas o fato é que as pessoas não
 							<br />
-							têm <span className="font-extrabold">PERMISSÃO</span> para
-							prosperar e avançar
+							têm <span className="font-extrabold">PERMISSÃO</span> para prosperar e avançar na
 							<br />
-							na vida.
+							vida.
 						</p>
 					</div>
 
@@ -325,7 +320,6 @@ export default function StudentsSection() {
 						border-l border-r border-[1px] border-[#46E96F]
 						p-[10px]
 						transition-all hover:brightness-110
-
 						md:w-[250px] md:h-[44px]
 					"
 					style={{
@@ -372,8 +366,8 @@ export default function StudentsSection() {
 							<p>
 								Muito tem se falado, ultimamente, de merecimento, mas o fato
 								<br />é que as pessoas não têm{" "}
-								<span className="font-extrabold">PERMISSÃO</span> para
-								prosperar e avançar
+								<span className="font-extrabold">PERMISSÃO</span> para prosperar e
+								avançar
 								<br />
 								na vida.
 							</p>
@@ -396,8 +390,7 @@ export default function StudentsSection() {
 								style={{
 									background:
 										"radial-gradient(83.8% 393.52% at 45.2% 7.95%, #46E96F 0%, #09A530 100%)",
-									boxShadow:
-										"0px -4px 56px 0px rgba(70,233,111,0.45)",
+									boxShadow: "0px -4px 56px 0px rgba(70,233,111,0.45)",
 								}}
 							>
 								LIBERAR ACESSO
@@ -413,15 +406,13 @@ export default function StudentsSection() {
 					<span className="text-[#D2A534] font-bold">ainda não tem</span>
 					<br className="md:hidden" />
 					<span className="md:hidden">
-						{" "}
-						Permissão para ter sucesso, riqueza e
+						{" "}Permissão para ter sucesso, riqueza e
 					</span>
 					<span className="hidden md:inline"> Permissão</span>
 					<br className="hidden md:block" />
 					<span className="md:hidden"> poder pessoal:</span>
 					<span className="hidden md:inline">
-						{" "}
-						para ter sucesso, riqueza e poder pessoal:
+						{" "}para ter sucesso, riqueza e poder pessoal:
 					</span>
 				</h2>
 			</div>
@@ -451,8 +442,8 @@ export default function StudentsSection() {
 							</h3>
 
 							<p className="font-raleway font-medium text-[16px] leading-[24px] text-[#FFFFFF]">
-								Quando uma trava te prende onde você está e te impede de
-								avançar o mínimo sequer na vida.
+								Quando uma trava te prende onde você está e te impede de avançar o
+								mínimo sequer na vida.
 								<br />
 								<br />
 								Por mais que você tente e se esforce, às vezes até mais do que
@@ -482,9 +473,8 @@ export default function StudentsSection() {
 							</h3>
 
 							<p className="font-raleway font-medium text-[16px] leading-[24px] text-[#FFFFFF]">
-								Quando você tem capacidade, energia e é reconhecido, mas um
-								salto financeiro tem demorado muito mais do que o normal para
-								acontecer.
+								Quando você tem capacidade, energia e é reconhecido, mas um salto
+								financeiro tem demorado muito mais do que o normal para acontecer.
 							</p>
 						</div>
 
