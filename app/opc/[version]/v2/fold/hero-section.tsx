@@ -1,132 +1,80 @@
 import Image from "next/image";
 
 export default function HeroSection() {
-    return (
-        <section
-            className={`
-      relative
-      min-h-[720px] md:min-h-[806px]
-      flex flex-col
-      items-center
-      justify-start
-      overflow-hidden
-      bg-black
-      bg-[url('/images/v2/primeira_dobra_elton_mobile.webp')] 
-      md:bg-[url('/images/v2/primeira_dobra_elton_desktop.webp')] 
-      bg-cover 
-      bg-center
-      `}
-        >
-            {/* overlay escuro */}
-            <div className="absolute inset-0 bg-black/10 z-0" />
+	return (
+		<section
+			id="primeira-dobra"
+			aria-labelledby="primeira-dobra-titulo"
+			className="relative h-[788px] w-full overflow-hidden bg-[#020D14] md:h-[600px]"
+		>
+			<div className="absolute inset-0">
+				<Image
+					src="/images/v2/primeira_dobra_mobile.png"
+					alt=""
+					fill
+					priority
+					sizes="100vw"
+					className="object-cover object-top md:hidden"
+				/>
 
-            {/* conteúdo */}
-            <div className="relative z-10 w-full max-w-[1200px] px-6 flex flex-col items-center">
+				<Image
+					src="/images/v2/primeira_dobra_desktop.png"
+					alt=""
+					fill
+					priority
+					sizes="100vw"
+					className="hidden object-cover object-top md:block"
+				/>
+			</div>
 
-                {/* LOGO */}
-                <div className="pt-10">
-                    <Image
-                        src="/images/v2/logotipo_ponto_cego.png"
-                        width={120}
-                        height={40}
-                        alt="logo"
-                    />
-                </div>
+			<div className="relative z-10 h-full w-full md:mx-auto md:max-w-[1200px]">
+				<Image
+					src="/images/v2/logo_primeira_dobra.svg"
+					alt="Ponto Cego"
+					width={142}
+					height={58}
+					priority
+					className="absolute left-[32px] top-[288px] h-auto w-[141px] md:hidden"
+				/>
 
-                {/* BLOCO TEXTO + BOTÃO */}
-                <div
-                    className="
-          flex flex-col
-          items-center
-          text-center
-          max-w-[913px]
-          mt-[300px] md:mt-[280px]
-          gap-[21px]
-          "
-                >
+				<Image
+					src="/images/v2/logo_primeira_dobra.svg"
+					alt="Ponto Cego"
+					width={100}
+					height={41}
+					priority
+					className="absolute left-[70px] top-[34px] hidden h-auto w-[100px] md:block"
+				/>
 
-                    {/* TITULO */}
-                    <h1
-                        className="
-            font-raleway
-            font-bold
-            text-[24px]
-            md:text-[32px]
-            leading-[115%]
-            text-[#F4F0E1]
-            "
-                    >
-                        Veja por que famosos e <br />
-                        <span className="text-[#C9B06A]">
-                            milionários pedem conselhos para
-                        </span> <br />
-                        esse cara que quebrou 17 vezes
-                    </h1>
+				<div className="absolute left-[32px] top-[370px] flex w-[296px] flex-col items-start md:left-[70px] md:top-[92px] md:w-[550px]">
+					<h1
+						id="primeira-dobra-titulo"
+						className="w-full font-raleway text-[22px] font-extrabold leading-[28px] tracking-normal text-white md:text-[36px] md:leading-[45px]"
+					>
+						Em apenas 1 dia, descubra o Ponto Cego que está impedindo você de{" "}
+						<span className="text-[#F0CB6D]">
+							ganhar mais, crescer na carreira e conquistar sua independência financeira.
+						</span>
+					</h1>
 
-                    {/* DESCRIÇÃO */}
-                    <p
-                        className="
-            font-raleway
-            text-[14px]
-            md:text-[16px]
-            text-[#F4F0E1]
-            opacity-80
-            max-w-[760px]
-            "
-                    >
-                        Através do Diagnóstico de Dependência Emocional, <br />
-                        ele vai revelar respostas que cursos, imersões e até <br />
-                        mesmo anos de terapia nunca te mostraram
-                    </p>
+					<p className="mt-[16px] w-full font-raleway text-[15px] font-medium leading-[22px] tracking-normal text-white md:mt-[20px] md:max-w-[540px] md:text-[19px] md:leading-[29px]">
+						Sem trocar de profissão, sem começar tudo de novo, sem continuar repetindo os mesmos resultados.
+					</p>
 
-                    {/* BOTÃO */}
-                    <button
-                        className="
-            w-[250px]
-            h-[44px]
-            flex
-            items-center
-            justify-center
-            font-raleway
-            font-bold
-            text-[14px]
-            text-[#03210F]
-            rounded-[9px]
-            border-l
-            border-r
-            border-[#46E96F]
-            transition-all
-            hover:brightness-110
-            "
-                        style={{
-                            background:
-                                "radial-gradient(83.8% 393.52% at 45.2% 7.95%, #46E96F 0%, #09A530 100%)",
-                            boxShadow: "0px -4px 56px 0px rgba(70,233,111,0.45)",
-                        }}
-                    >
-                        Quero fazer meu diagnóstico
-                    </button>
-
-                    {/* TEXTO PEQUENO */}
-                    <div className="flex items-center gap-3 mt-3">
-
-                        <Image
-                            src="/images/v2/icones.png"
-                            width={90}
-                            height={30}
-                            alt="avatares"
-                        />
-
-                        <p className="text-[12px] text-white text-left max-w-[320px]">
-                            e dezenas de outros famosos tiveram <br />
-                            acesso ao mesmo método que está <br />
-                            disponível para você.
-                        </p>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    );
+					<button
+						type="button"
+						className="mt-[26px] flex h-[44px] w-[296px] items-center justify-center rounded-[50px] border-x border-y-0 border-solid border-[#25D366] px-[10px] font-raleway text-[14px] font-bold leading-none text-white transition duration-300 hover:brightness-110 active:scale-[0.98] md:mt-[32px] md:h-[46px] md:w-[270px] md:text-[15px]"
+						style={{
+							background:
+								"radial-gradient(83.8% 393.52% at 45.2% 7.95%, #25D366 0%, rgba(37, 211, 102, 0) 100%), linear-gradient(0deg, #015E53, #015E53)",
+							boxShadow:
+								"0px -0.14px 1.92px #25D36626, 0px -0.35px 4.86px #25D36636, 0px -0.71px 9.92px #25D36644, 0px -1.46px 20.44px #25D36654, 0px -4px 56px #25D3667A",
+						}}
+					>
+						Quero fazer meu diagnóstico
+					</button>
+				</div>
+			</div>
+		</section>
+	);
 }
