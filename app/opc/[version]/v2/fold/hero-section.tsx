@@ -1,7 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { getHeadline } from "./headline";
 
-export default function HeroSection() {
+interface HeroSectionProps {
+	headlineId?: string;
+}
+
+export default function HeroSection({ headlineId }: HeroSectionProps) {
+	const headline = getHeadline(headlineId);
+
 	return (
 		<section
 			id="primeira-dobra"
@@ -52,14 +59,11 @@ export default function HeroSection() {
 						id="primeira-dobra-titulo"
 						className="w-full font-raleway text-[22px] font-extrabold leading-[28px] tracking-normal text-white md:text-[36px] md:leading-[45px]"
 					>
-						Em apenas 1 dia, descubra o Ponto Cego que está impedindo você de{" "}
-						<span className="text-[#F0CB6D]">
-							ganhar mais, crescer na carreira e conquistar sua independência financeira.
-						</span>
+						{headline.title}
 					</h1>
 
 					<p className="mt-[16px] w-full font-raleway text-[15px] font-medium leading-[22px] tracking-normal text-white md:mt-[20px] md:max-w-[540px] md:text-[19px] md:leading-[29px]">
-						Sem trocar de profissão, sem começar tudo de novo, sem continuar repetindo os mesmos resultados.
+						{headline.text}
 					</p>
 
 					<Link
@@ -75,6 +79,17 @@ export default function HeroSection() {
 						Quero fazer meu diagnóstico
 					</Link>
 				</div>
+			</div>
+
+			<div className="pointer-events-none absolute bottom-[14px] left-1/2 z-20 hidden w-[1040px] max-w-[calc(100%_-_160px)] -translate-x-1/2 md:block">
+				<Image
+					src="/images/v2/Group 49 (1).png"
+					alt=""
+					width={1040}
+					height={57}
+					sizes="(min-width: 768px) 1040px"
+					className="block h-auto w-full"
+				/>
 			</div>
 		</section>
 	);
