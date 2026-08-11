@@ -227,81 +227,145 @@ function StaticImagesBlock({
 }
 
 function VideoImpactBlock() {
+	const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+	useEffect(() => {
+		if (!isVideoOpen) return;
+
+		const previousOverflow = document.body.style.overflow;
+
+		const handleKeyDown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") setIsVideoOpen(false);
+		};
+
+		document.body.style.overflow = "hidden";
+		window.addEventListener("keydown", handleKeyDown);
+
+		return () => {
+			document.body.style.overflow = previousOverflow;
+			window.removeEventListener("keydown", handleKeyDown);
+		};
+	}, [isVideoOpen]);
+
 	return (
-		<div className="mt-[150px] flex w-full flex-col items-center md:mt-[190px]">
-			<h2 className="w-[296px] text-center font-raleway text-[22px] font-extrabold leading-[26px] text-white md:w-[587px] md:text-[32px] md:leading-[36px]">
-				Veja toda a <span className="text-[#DBB658]">emoção</span> e impacto do
-				<br />
-				<span className="text-[#DBB658]">Ponto Cego</span> em 01 minuto...
-			</h2>
-
-			<Image
-				src="/images/v2/Thumb.png"
-				alt="Vídeo Ponto Cego"
-				width={739}
-				height={416}
-				className="mt-[51px] h-auto w-[296px] md:mt-[80px] md:w-[739px]"
-			/>
-
-			<div className="mt-[50px] w-[265px] text-center font-raleway text-[16px] font-medium leading-[24px] text-white md:w-[559px]">
-				<p>
-					Aqui você não encontrará um motivacional para enriquecer, o Ponto
-					Cego é justamente o oposto dessa maré superficial.
-				</p>
-
-				<p className="mt-6">
-					Porque aqui, nós sabemos que a segunda-feira chega…
-				</p>
-
-				<p className="mt-6">
-					… e quando ela chegar você terá as armas necessárias para prosperar e
-					mudar de vida (rápido) eliminando as travas emocionais que te impedem
-					de ter sucesso…
-				</p>
-
-				<p className="mt-6">Não tem segredo.</p>
-
-				<p className="mt-6">
-					Ou você tem resultado,
+		<>
+			<div className="mt-[150px] flex w-full flex-col items-center md:mt-[190px]">
+				<h2 className="w-[296px] text-center font-raleway text-[22px] font-extrabold leading-[26px] text-white md:w-[587px] md:text-[32px] md:leading-[36px]">
+					Veja toda a <span className="text-[#DBB658]">emoção</span> e impacto do
 					<br />
-					ou você não paga.
-				</p>
+					<span className="text-[#DBB658]">Ponto Cego</span> em 01 minuto...
+				</h2>
 
-				<p className="mt-6">
-					Aproveite esta oportunidade e esteja diante do melhor ambiente para te
-					trazer Percepções para tomar Decisões importantes que te levam a Ações
-					que irão mudar a sua vida.
-				</p>
+				<button
+					type="button"
+					onClick={() => setIsVideoOpen(true)}
+					className="mt-[51px] block w-[296px] cursor-pointer overflow-hidden md:mt-[80px] md:w-[739px]"
+					aria-label="Assistir vídeo Ponto Cego"
+				>
+					<Image
+						src="/images/v2/Thumb.png"
+						alt="Assistir vídeo Ponto Cego"
+						width={739}
+						height={416}
+						className="h-auto w-full"
+					/>
+				</button>
+
+				<div className="mt-[50px] w-[265px] text-center font-raleway text-[16px] font-medium leading-[24px] text-white md:w-[559px]">
+					<p>
+						Aqui você não encontrará um motivacional para enriquecer, o Ponto
+						Cego é justamente o oposto dessa maré superficial.
+					</p>
+
+					<p className="mt-6">
+						Porque aqui, nós sabemos que a segunda-feira chega…
+					</p>
+
+					<p className="mt-6">
+						… e quando ela chegar você terá as armas necessárias para prosperar e
+						mudar de vida (rápido) eliminando as travas emocionais que te impedem
+						de ter sucesso…
+					</p>
+
+					<p className="mt-6">Não tem segredo.</p>
+
+					<p className="mt-6">
+						Ou você tem resultado,
+						<br />
+						ou você não paga.
+					</p>
+
+					<p className="mt-6">
+						Aproveite esta oportunidade e esteja diante do melhor ambiente para te
+						trazer Percepções para tomar Decisões importantes que te levam a Ações
+						que irão mudar a sua vida.
+					</p>
+				</div>
+
+				<Link
+					href="https://pay.hotmart.com/T101582944K?checkoutMode=10"
+					className="
+						mt-[34px]
+						flex
+						h-[44px]
+						w-[250px]
+						items-center
+						justify-center
+						rounded-[50px]
+						border-x
+						border-[#25D366]
+						bg-[radial-gradient(83.8%_393.52%_at_45.2%_7.95%,_#25D366_0%,_rgba(37,211,102,0)_100%),linear-gradient(0deg,_#015E53,_#015E53)]
+						p-[10px]
+						font-raleway
+						text-[12px]
+						font-extrabold
+						uppercase
+						leading-[16px]
+						text-white
+						shadow-[0px_-0.14px_1.92px_0px_#25D36626,0px_-0.35px_4.86px_0px_#25D36636,0px_-0.71px_9.92px_0px_#25D36644,0px_-1.46px_20.44px_0px_#25D36654,0px_-4px_56px_0px_#25D3667A]
+						transition-all
+						hover:brightness-110
+					"
+				>
+					Liberar acesso
+				</Link>
 			</div>
 
-			<Link
-				href="https://pay.hotmart.com/T101582944K?checkoutMode=10"
-				className="
-					mt-[34px]
-					flex
-					h-[44px]
-					w-[250px]
-					items-center
-					justify-center
-					rounded-[50px]
-					border-x
-					border-[#25D366]
-					bg-[radial-gradient(83.8%_393.52%_at_45.2%_7.95%,_#25D366_0%,_rgba(37,211,102,0)_100%),linear-gradient(0deg,_#015E53,_#015E53)]
-					p-[10px]
-					font-raleway
-					text-[12px]
-					font-extrabold
-					uppercase
-					leading-[16px]
-					text-white
-					shadow-[0px_-0.14px_1.92px_0px_#25D36626,0px_-0.35px_4.86px_0px_#25D36636,0px_-0.71px_9.92px_0px_#25D36644,0px_-1.46px_20.44px_0px_#25D36654,0px_-4px_56px_0px_#25D3667A]
-					transition-all
-					hover:brightness-110
-				"
-			>
-				Liberar acesso
-			</Link>
-		</div>
+			{isVideoOpen && (
+				<div
+					className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 px-4"
+					onClick={() => setIsVideoOpen(false)}
+					role="dialog"
+					aria-modal="true"
+					aria-label="Vídeo Ponto Cego"
+				>
+					<div
+						className="relative w-full max-w-[1000px]"
+						onClick={(event) => event.stopPropagation()}
+					>
+						<button
+							type="button"
+							onClick={() => setIsVideoOpen(false)}
+							className="absolute -top-[45px] right-0 flex h-9 w-9 items-center justify-center rounded-full text-[32px] font-light leading-none text-white transition-opacity hover:opacity-70"
+							aria-label="Fechar vídeo"
+						>
+							×
+						</button>
+
+						<div className="relative aspect-video w-full overflow-hidden rounded-[10px] bg-black">
+							<iframe
+								src="https://iframe.mediadelivery.net/embed/138749/2011ea14-6947-4167-a265-d276ebc4c583?autoplay=true&loop=false&muted=false&preload=true&responsive=true"
+								title="Vídeo Ponto Cego"
+								loading="lazy"
+								className="absolute inset-0 h-full w-full border-0"
+								allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture; fullscreen"
+								allowFullScreen
+							/>
+						</div>
+					</div>
+				</div>
+			)}
+		</>
 	);
 }
 
