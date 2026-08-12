@@ -62,7 +62,19 @@ export default function HeroSection({ headlineId }: HeroSectionProps) {
 						{headline.title}
 					</h1>
 
-					<p className="mt-[16px] w-full font-raleway text-[15px] font-medium leading-[22px] tracking-normal text-white md:mt-[20px] md:max-w-[540px] md:text-[19px] md:leading-[29px]">
+					{headline.highlightText && (
+						<p className="mt-[16px] w-full font-raleway text-[15px] font-semibold leading-[22px] tracking-normal text-white md:mt-[22px] md:max-w-[550px] md:text-[17px] md:leading-[27px]">
+							{headline.highlightText}
+						</p>
+					)}
+
+					<p
+						className={`w-full font-raleway tracking-normal text-white ${
+							headline.highlightText
+								? "mt-[16px] text-[13px] font-normal leading-[20px] md:mt-[22px] md:max-w-[520px] md:text-[15px] md:leading-[23px]"
+								: "mt-[16px] text-[15px] font-medium leading-[22px] md:mt-[20px] md:max-w-[540px] md:text-[19px] md:leading-[29px]"
+						}`}
+					>
 						{headline.text}
 					</p>
 

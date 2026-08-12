@@ -29,7 +29,7 @@ export default function PermissionConceptSection() {
 
 			<div
 				className="
-					absolute left-[37px] right-[37px] top-[105px] flex flex-col gap-[18px]
+					absolute left-[37px] right-[37px] top-[135px] flex flex-col gap-[18px]
 					md:left-[830px] md:right-auto md:top-[70px] md:w-[360px] md:gap-[32px]
 				"
 			>
@@ -197,8 +197,7 @@ export default function PermissionConceptSection() {
 							atendimentos, eu cheguei a resposta. Esse "azar"
 							<br />
 							aparente se chama{" "}
-							<span className="font-extrabold">Momento Pré-Queda:</span> um
-							sintoma
+							<span className="font-extrabold">Momento Pré-Queda:</span> um sintoma
 							<br />
 							clássico de Falta de Permissão.
 							<br />
