@@ -30,7 +30,7 @@ const specialElite = Special_Elite({
 
 export const metadata: Metadata = {
   title:
-    "Teste Gratuito de Nível de Permissão – descubra os bloqueios que te impedem de conquistar mais resultados.",
+    "Ponto Cego - Aliança Divergente",
   description: "Aprovado por mais de 156 mil pessoas",
   icons: {
     icon: "/images/cropped-Alianca-Divergente-Logotipo-Favicon-32x32.png",
