@@ -31,3 +31,32 @@ export const isValidTemperature = (temperature: string): boolean => {
 export const getValidTemperatures = (): string[] => {
   return Object.keys(TEMPERATURE_TAG_MAP);
 };
+
+export const NORMALIZED_TEMPERATURE_VALUES = ["q", "f", "m", "t", "org", "ind"] as const;
+
+export type NormalizedTemperature =
+  (typeof NORMALIZED_TEMPERATURE_VALUES)[number];
+
+export const normalizeTemperature = (
+  value: string | string[] | undefined
+): NormalizedTemperature | undefined => {
+  const rawValue = Array.isArray(value) ? value[0] : value;
+  if (!rawValue) return undefined;
+
+  if (rawValue === "o") {
+    return "org";
+  }
+
+  if (
+    rawValue === "q" ||
+    rawValue === "f" ||
+    rawValue === "m" ||
+    rawValue === "t" ||
+    rawValue === "ind" ||
+    rawValue === "org"
+  ) {
+    return rawValue;
+  }
+
+  return undefined;
+};

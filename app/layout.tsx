@@ -5,6 +5,7 @@ import { Raleway, Bebas_Neue, Special_Elite } from "next/font/google";
 import GoogleTagManager from "./components/GoogleTagManager";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import AliancaScript from "./components/AliancaScript";
+import Providers from "./providers";
 const GTM_ID = "GTM-WNV8FX9J"; // Substitua pelo seu GTM ID
 
 const raleway = Raleway({
@@ -78,7 +79,7 @@ export default function RootLayout({
         <GoogleTagManager />
         <MicrosoftClarity />
         <AliancaScript />
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
