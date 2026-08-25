@@ -1,13 +1,19 @@
 "use client";
 
-import React from "react";
-import { handleScroll } from "@/lib/utils";
+import { ArrowUp } from "lucide-react";
 
 export default function Biography() {
+	const handleScrollToTop = () => {
+		window.scrollTo({
+			top: 0,
+			behavior: "smooth",
+		});
+	};
+
 	const ButtonParticipate = () => (
 		<button
 			type="button"
-			onClick={handleScroll}
+			onClick={handleScrollToTop}
 			className="h-[40px] w-full max-w-[332px] whitespace-nowrap rounded-[49.24px] border border-transparent px-[12px] text-[14px] font-bold uppercase leading-[125%] text-white shadow-[0_4px_14px_rgba(0,117,70,0.28)] transition-all hover:brightness-110 [background:radial-gradient(42.75%_101.03%_at_50%_50%,#00BC71_0%,rgba(12,112,72,0)_100%)_padding-box,linear-gradient(#007546,#007546)_padding-box,linear-gradient(90deg,#00D47F_0%,rgba(0,212,127,0)_50%,#00D47F_100%)_border-box] md:h-[52px] md:max-w-[470px] md:rounded-[67.3px] md:px-[16px] md:text-[19px]"
 		>
 			Quero participar gratuitamente
@@ -48,7 +54,7 @@ export default function Biography() {
 					</div>
 				</div>
 
-				<div className="absolute left-[44px] top-[780px] w-[265px] text-[20px] font-light leading-[133%] text-white md:left-[33px] md:top-[527px] md:w-[535px] md:leading-[150%]">
+				<div className="absolute left-[44px] top-[805px] w-[265px] text-[20px] font-light leading-[133%] text-white md:left-[33px] md:top-[527px] md:w-[535px] md:leading-[150%]">
 					<p>
 						Durante o Super Ponto Cego, você vai entender por que trabalhar
 						mais, estudar mais e tentar novas estratégias não produz o
@@ -76,7 +82,10 @@ export default function Biography() {
 								A imersão O Ponto Cego já foi
 							</span>
 							<span className="block">
-								uma experiência que custou R$ 47.
+								uma experiência que
+							</span>
+							<span className="block">
+								custou R$ 47.
 							</span>
 
 							<span className="mt-[20px] block">
