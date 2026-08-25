@@ -70,7 +70,7 @@ export function LeadCaptureForm({
   phoneInputClassName,
   buttonClassName,
   defaultValues,
-  submitLabel = "QUERO SER LIVRE",
+  submitLabel = "QUERO ENXERGAR MEU PONTO CEGO",
   submittingLabel = "ENVIANDO...",
   submitError,
   onSubmit,
