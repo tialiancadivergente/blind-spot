@@ -6,7 +6,6 @@ import GoogleTagManager from "./components/GoogleTagManager";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import AliancaScript from "./components/AliancaScript";
 import Providers from "./providers";
-const GTM_ID = "GTM-WNV8FX9J"; // Substitua pelo seu GTM ID
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -80,6 +79,9 @@ export default function RootLayout({
         <MicrosoftClarity />
         <AliancaScript />
         <Providers>{children}</Providers>
+        <script>window.campaignId = 'PXN0'</script>
+        <script src="https://static.buzzlead.com.br/form-widget.js"></script>
+        <script src="https://static.buzzlead.com.br/tracker.js"></script>
       </body>
     </html>
   );

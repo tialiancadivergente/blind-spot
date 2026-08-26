@@ -53,6 +53,7 @@ export default function HeroSection({
 					</div>
 
 					<div className="absolute left-1/2 top-[514px] w-[calc(100%-32px)] max-w-[328px] -translate-x-1/2 [&_form]:!gap-2 [&_form]:!space-y-2 md:top-[730px] md:w-[420px] md:max-w-none md:[&_form]:!gap-3 md:[&_form]:!space-y-3">
+						<div id="buzzlead-root"></div>
 						<LeadCaptureForm
 							formName={formName}
 							onSubmit={onSubmit}
