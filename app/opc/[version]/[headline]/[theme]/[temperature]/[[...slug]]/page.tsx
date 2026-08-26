@@ -1,6 +1,7 @@
 "use client";
 
 import SplashScreenOdp from "@/app/components/SplashScreenOdp";
+import Formv10 from "@/app/opc/[version]/v10";
 import Formv4 from "@/app/opc/[version]/v4";
 import Formv5 from "@/app/opc/[version]/v5";
 import Formv6 from "@/app/opc/[version]/v6";
@@ -11,6 +12,14 @@ import { useParams } from "next/navigation";
 
 export default function Home() {
 	const { version } = useParams();
+
+		if (version === "v10") {
+		return (
+			<SplashScreenOdp>
+				<Formv10 />
+			</SplashScreenOdp>
+		);
+	}
 
 		if (version === "v9") {
 		return (
