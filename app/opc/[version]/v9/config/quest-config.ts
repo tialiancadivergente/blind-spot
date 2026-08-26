@@ -2,11 +2,11 @@ export const DEFAULT_QUEST_FORM_VERSION_ID =
   "c0909c2f-4bb6-49fe-8fac-7153076f6781";
 
 const QUEST_WHATSAPP_URL_BY_TEMPERATURE = {
-  f: "https://sendflow.click/i/0808aliancadivergente",
-  org: "https://sendflow.click/i/0808aliancadivergente",
-  m: "https://sendflow.click/i/0808aliancadivergente",
-  q: "https://sendflow.click/i/0808aliancadivergente",
-  t: "https://sendflow.click/i/0808aliancadivergente",
+  f: "https://sendflow.click/i/superopc-2908-pdi",
+  org: "https://sendflow.click/i/superopc-2908-pdi",
+  m: "https://sendflow.click/i/superopc-2908-pdi",
+  q: "https://sendflow.click/i/superopc-2908-pdi",
+  t: "https://sendflow.click/i/superopc-2908-pdi",
 } as const;
 
 const QUEST_WHATSAPP_URL_BY_REGION = {
