@@ -4,7 +4,7 @@ import React, { useMemo } from "react";
 import { useState, useEffect } from "react";
 import { useParams, useSearchParams } from "next/navigation";
 import { type LeadCaptureSubmitData } from "@/app/components/form/lead-capture-form";
-import { LEAD_TRACK_CONFIG } from "@/lib/config/lead-track-config";
+import { LEAD_TRACK_CONFIG } from "./config/lead-track-config";
 import {
   getTrackingCookies,
   getTrackingPageInfo,
@@ -20,7 +20,7 @@ import type {
 } from "@/app/modules/lead-capture/lead-capture.model";
 import ContainerTeste from "./container";
 import { Headline } from "./headline";
-import { resolveQuestTesteWhatsappUrl } from "@/lib/config/quest-config";
+import { resolveQuestTesteWhatsappUrl } from "./config/quest-config";
 
 export default function Formv5() {
   const params = useParams();

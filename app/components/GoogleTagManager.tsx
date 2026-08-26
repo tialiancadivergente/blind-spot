@@ -1,29 +1,24 @@
 "use client";
 
 import { useEffect } from "react";
+import { useParams } from "next/navigation";
 import TagManager from "react-gtm-module";
-import useUserIP from "../hooks/useUserIP";
-
 
 const GoogleTagManager = () => {
-    const userIp = useUserIP(); // Captura o IP no carregamento
-    console.log('meu ip =>', userIp);
-    
-    useEffect(() => {
-        // Verifica o subdomínio
-        const hostname = window.location.hostname;
-        const subdomain = hostname.split('.')[0];
-        
-        // Define o GTM ID baseado no subdomínio
-        const gtmId = subdomain === 'opcr' ? 'GTM-KL8GTFZ' : 'GTM-KL8GTFZ';
-        
-        console.log('subdomain ====> ', subdomain);
-        console.log('gtmId ====> ', gtmId);
-        
-        TagManager.initialize({ gtmId });
-    }, []);
+  const params = useParams<{ version?: string | string[] }>();
 
-    return null; // Esse componente não precisa renderizar nada
+  useEffect(() => {
+    const version = Array.isArray(params.version)
+      ? params.version[0]
+      : params.version;
+    const gtmId = version === "v5" ? "GTM-MHC745NZ" : "";
+
+    if (!gtmId) return;
+    
+    TagManager.initialize({ gtmId });
+  }, [params.version]);
+
+  return null;
 };
 
 export default GoogleTagManager;
