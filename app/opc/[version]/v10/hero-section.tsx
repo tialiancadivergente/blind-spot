@@ -40,7 +40,7 @@ export default function HeroSection({
 						<div className="absolute left-1/2 top-[406px] w-[128px] -translate-x-1/2 text-center font-poppins text-[16px] font-bold leading-[110%] md:top-[627px] md:w-[390px] md:text-[24.38px] md:leading-[32.5px]">
 							<p className="text-[#F0CB6D] md:inline">Evento Gratuito</p>
 							<span className="hidden text-white md:inline"> | </span>
-							<p className="text-white md:inline">29 de outubro</p>
+							<p className="text-white md:inline">29 de agosto</p>
 						</div>
 
 						<div className="absolute left-1/2 top-[460px] w-[151px] -translate-x-1/2 text-center font-poppins text-[12px] font-normal leading-[150%] text-white md:top-[680px] md:w-[417px] md:text-[18px] md:leading-[24px]">
