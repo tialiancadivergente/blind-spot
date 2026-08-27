@@ -6,6 +6,7 @@ import GoogleTagManager from "./components/GoogleTagManager";
 import MicrosoftClarity from "./components/MicrosoftClarity";
 import AliancaScript from "./components/AliancaScript";
 import Providers from "./providers";
+import BuzzleadFormScripts from "@/lib/buzzlead/BuzzleadFormScripts";
 
 const raleway = Raleway({
   subsets: ["latin"],
@@ -79,8 +80,7 @@ export default function RootLayout({
         <MicrosoftClarity />
         <AliancaScript />
         <Providers>{children}</Providers>
-        <script>window.campaignId = 'PXN0'</script>
-        <script src="https://static.buzzlead.com.br/form-widget.js"></script>
+        <BuzzleadFormScripts />
       </body>
     </html>
   );

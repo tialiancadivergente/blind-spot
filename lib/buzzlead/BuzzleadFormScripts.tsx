@@ -14,12 +14,7 @@ export default function BuzzleadFormScripts({
       </Script>
       <Script
         id="buzzlead-form-widget"
-        src="https://static.buzzlead.com.br/form-widget.js"
-        strategy="afterInteractive"
-      />
-      <Script
-        id="buzzlead-tracker"
-        src="https://static.buzzlead.com.br/tracker.js"
+        src="https://static.buzzlead.com.br/widget.js"
         strategy="afterInteractive"
       />
     </>
