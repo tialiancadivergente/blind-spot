@@ -47,7 +47,7 @@ export default function HeroSection({
 							Preencha abaixo e gere seu link de indicação:
 						</div>
 
-						<div className="absolute z-50" id="buzzlead-root"></div>
+						<div className="top-[480px]" id="buzzlead-root"></div>
 					</div>
 				</div>
 			</section>
