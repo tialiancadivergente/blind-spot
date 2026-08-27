@@ -20,10 +20,10 @@ export default function HeroSection({
 			<section
 				id="hero"
 				aria-labelledby="hero-title"
-				className="relative min-h-[816px] w-full overflow-hidden bg-black bg-[url('/super_ponto_cego/bg_primeira_dobra_mobile.png.png')] bg-cover bg-top bg-no-repeat md:min-h-[975px] md:bg-[url('/super_ponto_cego/bg_primeira_dobra_desktop.png')]"
+				className="relative min-h-[1316px] w-full overflow-hidden bg-black bg-[url('/super_ponto_cego/bg_primeira_dobra_mobile.png.png')] bg-cover bg-top bg-no-repeat md:bg-[url('/super_ponto_cego/bg_primeira_dobra_desktop.png')]"
 			>
-				<div className="relative mx-auto min-h-full w-full">
-					<div className="relative min-h-full w-full translate-y-[52px] md:translate-y-0">
+				<div className="relative mx-auto w-full">
+					<div className="relative w-full translate-y-[52px] md:translate-y-0">
 						<Image
 							src="/super_ponto_cego/logo_super_ponto_cego.svg"
 							alt="Super Ponto Cego"
