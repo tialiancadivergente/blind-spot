@@ -81,7 +81,6 @@ export default function RootLayout({
         <Providers>{children}</Providers>
         <script>window.campaignId = 'PXN0'</script>
         <script src="https://static.buzzlead.com.br/form-widget.js"></script>
-        <script src="https://static.buzzlead.com.br/tracker.js"></script>
       </body>
     </html>
   );
