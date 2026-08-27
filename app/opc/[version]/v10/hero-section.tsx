@@ -20,7 +20,7 @@ export default function HeroSection({
 			<section
 				id="hero"
 				aria-labelledby="hero-title"
-				className="relative h-[816px] w-full overflow-hidden bg-black bg-[url('/super_ponto_cego/bg_primeira_dobra_mobile.png.png')] bg-cover bg-top bg-no-repeat md:h-[975px] md:bg-[url('/super_ponto_cego/bg_primeira_dobra_desktop.png')]"
+				className="relative min-h-[816px] w-full overflow-hidden bg-black bg-[url('/super_ponto_cego/bg_primeira_dobra_mobile.png.png')] bg-cover bg-top bg-no-repeat md:min-h-[975px] md:bg-[url('/super_ponto_cego/bg_primeira_dobra_desktop.png')]"
 			>
 				<div className="relative mx-auto h-full w-full">
 					<div className="relative h-full w-full translate-y-[52px] md:translate-y-0">
@@ -47,7 +47,7 @@ export default function HeroSection({
 							Preencha abaixo e gere seu link de indicação:
 						</div>
 
-						<div className="top-[480px]" id="buzzlead-root"></div>
+						<div className="top-[700px]" id="buzzlead-root"></div>
 					</div>
 				</div>
 			</section>
