@@ -28,38 +28,33 @@ export default function Biography() {
 			style={{ fontFamily: '"Bricolage Grotesque", sans-serif' }}
 		>
 			<div className="relative mx-auto h-full w-full max-w-[1280px]">
-				<div className="absolute left-[30px] top-[29px] w-[286px] md:left-[32px] md:top-[213px] md:w-[622px]">
+				<div className="absolute left-[30px] top-[29px] w-[315px] md:left-[32px] md:top-[213px] md:w-[650px]">
 					<h2
 						id="super-ponto-cego-titulo"
-						className="m-0 text-[20px] font-bold uppercase leading-[150%] tracking-normal text-white md:text-[30px]"
+						className="m-0 text-[24px] font-bold uppercase leading-[125%] tracking-normal text-white md:text-[30px]"
 					>
-						Um encontro para enxergar aquilo que pode estar comandando anos da
-						sua vida sem você perceber.
+						Como vai funcionar
 					</h2>
-				</div>
 
-				<div className="absolute left-[30px] top-[201px] h-[65px] w-[318px] overflow-hidden border-[0.42px] border-white font-bold uppercase md:left-[32px] md:top-[376px] md:h-[111px] md:w-[540px] md:border-[0.72px]">
-					<div className="flex h-1/2 w-full border-b-[0.42px] border-white md:border-b-[0.72px]">
-						<div className="flex w-[58%] items-center justify-center border-r-[0.42px] border-white px-2 text-center text-[12.72px] leading-[150%] text-white md:border-r-[0.72px] md:text-[21.72px]">
-							<span className="whitespace-nowrap">Sábado, 29 de agosto</span>
-						</div>
+					<div className="mt-[30px] flex w-full flex-col gap-[20px] text-[17px] font-light leading-[140%] text-white md:mt-[34px] md:gap-[19px] md:text-[22px] md:leading-[145%]">
+						<p className="m-0">
+							<span className="mr-[5px]">→</span>
+							Você convida pessoas que não conhecem a Aliança Divergente para
+							o evento <span className="font-medium">GRATUITO</span> Super Ponto
+							Cego
+						</p>
 
-						<div className="flex w-[42%] items-center justify-center px-2 text-center text-[12.72px] leading-[150%] text-white md:text-[21.72px]">
-							<span className="whitespace-nowrap">Das 10h às 12h</span>
-						</div>
+						<p className="m-0">
+							<span className="mr-[5px]">→</span>
+							Eles se cadastram com{" "}
+							<span className="font-medium">SEU LINK</span>
+						</p>
+
+						<p className="m-0">
+							<span className="mr-[5px]">→</span>
+							Quanto mais gente você trouxer, mais prêmios você ganha!
+						</p>
 					</div>
-
-					<div className="flex h-1/2 items-center justify-center px-2 text-center text-[12.72px] leading-[150%] text-[#F0CB6D] md:text-[21.72px]">
-						<span className="whitespace-nowrap">Ao vivo no Zoom</span>
-					</div>
-				</div>
-
-				<div className="absolute left-[44px] top-[900px] w-[265px] text-[20px] font-light leading-[133%] text-white md:left-[33px] md:top-[527px] md:w-[535px] md:leading-[150%]">
-					<p>
-						Durante o Super Ponto Cego, você vai entender por que trabalhar
-						mais, estudar mais e tentar novas estratégias não produz o
-						resultado que você espera.
-					</p>
 				</div>
 
 				<div className="absolute left-1/2 top-[1130px] flex w-[360px] -translate-x-1/2 flex-col items-center rounded-[19.84px] bg-white px-[26px] pb-[48px] pt-[48px] text-[#07242C] shadow-[0_10px_30px_rgba(0,0,0,0.28)] md:left-[220px] md:top-[962px] md:min-h-[630px] md:w-[840px] md:translate-x-0 md:rounded-[14px] md:px-[72px] md:py-[58px]">
