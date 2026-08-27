@@ -62,137 +62,38 @@ export default function Biography() {
 					</p>
 				</div>
 
-				<div className="absolute left-1/2 top-[996px] flex h-[1140px] w-[360px] -translate-x-1/2 flex-col items-center rounded-[19.84px] bg-white px-[24px] pt-[50px] text-[#07242C] shadow-[0_10px_30px_rgba(0,0,0,0.28)] md:left-[220px] md:top-[962px] md:h-[932px] md:w-[840px] md:translate-x-0 md:rounded-[14px] md:px-[53px] md:pt-[58px]">
-					<div className="w-full text-center text-[#C0964B]">
-						<div className="text-[40px] font-bold leading-[118%] md:hidden">
-							<span className="block">Desta vez, você</span>
-							<span className="block">não vai pagar</span>
-							<span className="block">nada para participar.</span>
-						</div>
+				<div className="absolute left-1/2 top-[996px] flex min-h-[670px] w-[360px] -translate-x-1/2 flex-col items-center rounded-[19.84px] bg-white px-[26px] py-[48px] text-[#07242C] shadow-[0_10px_30px_rgba(0,0,0,0.28)] md:left-[220px] md:top-[962px] md:min-h-[630px] md:w-[840px] md:translate-x-0 md:rounded-[14px] md:px-[72px] md:py-[58px]">
+					<h3 className="m-0 w-full text-center text-[34px] font-bold uppercase leading-[115%] text-[#C0964B] md:text-[50px] md:leading-[118%]">
+						<span className="block">Prêmios</span>
+						<span className="block">por indicações</span>
+					</h3>
 
-						<div className="hidden text-[50px] font-bold leading-[118%] md:block">
-							<span className="block">Desta vez, você não vai</span>
-							<span className="block">pagar nada para participar.</span>
-						</div>
-					</div>
+					<ul className="mt-[38px] w-full max-w-[290px] list-disc space-y-[18px] pl-[20px] text-left text-[17px] font-medium leading-[125%] text-[#07242C] md:mt-[44px] md:max-w-[590px] md:space-y-[20px] md:pl-[26px] md:text-[24px] md:leading-[125%]">
+						<li>
+							<span className="font-bold">10 indicações:</span> Gravação do
+							Encontro: Destrave a Vida dos Sonhos
+						</li>
 
-					<div className="mt-[34px] w-full text-center font-medium text-[#07242C] md:mt-[28px]">
-						<div className="text-[20px] leading-[118%] md:hidden">
-							<span className="block">
-								A imersão O Ponto Cego já foi
-							</span>
-							<span className="block">
-								uma experiência que
-							</span>
-							<span className="block">
-								custou R$ 47.
-							</span>
+						<li>
+							<span className="font-bold">30 indicações:</span> Treinamento
+							como vender usando redes sociais
+						</li>
 
-							<span className="mt-[20px] block">
-								Mas, nesta edição especial, o
-							</span>
-							<span className="block">
-								acesso ao Super Ponto Cego
-							</span>
-							<span className="block">
-								será 100% gratuito para você.
-							</span>
-						</div>
+						<li>
+							<span className="font-bold">60 indicações:</span> Live com o
+							Jordão
+						</li>
 
-						<div className="hidden text-[24px] leading-[118%] md:block">
-							<span className="block">
-								A imersão O Ponto Cego já foi uma experiência que
-							</span>
-							<span className="block">custou R$ 47.</span>
+						<li>
+							<span className="font-bold">
+								Top 1 (Acima de 60 indicações):
+							</span>{" "}
+							Pense Comigo com Jordão
+						</li>
+					</ul>
 
-							<span className="mt-[20px] block">
-								Mas, nesta edição especial, o acesso ao Super Ponto Cego
-							</span>
-							<span className="block">
-								será 100% gratuito para você.
-							</span>
-						</div>
-					</div>
-
-					<div className="mt-[34px] flex w-full flex-col items-center md:mt-[32px]">
-						<p className="text-center text-[15.87px] font-medium leading-[23.8px] text-[#07242C] md:text-[19.84px] md:leading-[29.75px]">
-							De <span className="line-through">R$47,00</span> por
-						</p>
-
-						<div className="mt-[4px] flex items-end justify-center font-bold text-[#07242C]">
-							<span className="mb-[12px] mr-[8px] text-[33px] leading-none md:mb-[15px] md:mr-[10px] md:text-[42px]">
-								R$
-							</span>
-
-							<span className="text-[74px] leading-[0.88] tracking-[-0.04em] md:text-[96px]">
-								0,00
-							</span>
-						</div>
-					</div>
-
-					<div className="mt-[20px] flex w-full justify-center md:mt-[24px]">
+					<div className="mt-[38px] flex w-full justify-center md:mt-[46px]">
 						<ButtonParticipate />
-					</div>
-
-					<div className="mt-[34px] w-full text-center font-medium text-[#07242C] md:mt-[40px]">
-						<div className="text-[20px] leading-[118%] md:hidden">
-							<span className="block">
-								Esta será a única vez que o
-							</span>
-							<span className="block">Super Ponto Cego</span>
-							<span className="block">
-								acontecerá gratuitamente
-							</span>
-							<span className="block">neste formato.</span>
-
-							<span className="mt-[22px] block">
-								Você só precisa fazer sua
-							</span>
-							<span className="block">
-								inscrição, reservar o seu
-							</span>
-							<span className="block">
-								sábado e entrar no Zoom às
-							</span>
-							<span className="block">10h.</span>
-
-							<span className="mt-[22px] block">
-								Porque depois que você
-							</span>
-							<span className="block">
-								enxerga um ponto cego,
-							</span>
-							<span className="block">
-								fica muito mais fácil
-							</span>
-							<span className="block">
-								alcançar aqueles resultados
-							</span>
-							<span className="block">
-								que você sabe que merece!
-							</span>
-						</div>
-
-						<div className="hidden text-[24px] leading-[118%] md:block">
-							<span className="block">
-								Esta será a única vez que o Super Ponto Cego acontecerá
-							</span>
-							<span className="block">
-								gratuitamente neste formato.
-							</span>
-
-							<span className="mt-[24px] block">
-								Você só precisa fazer sua inscrição, reservar o seu sábado e
-							</span>
-							<span className="block">entrar no Zoom às 10h.</span>
-
-							<span className="mt-[24px] block">
-								Porque depois que você enxerga um ponto cego, fica muito mais
-							</span>
-							<span className="block">
-								fácil alcançar aqueles resultados que você sabe que merece!
-							</span>
-						</div>
 					</div>
 				</div>
 			</div>
