@@ -54,7 +54,7 @@ export default function Biography() {
 					</div>
 				</div>
 
-				<div className="absolute left-[44px] top-[805px] w-[265px] text-[20px] font-light leading-[133%] text-white md:left-[33px] md:top-[527px] md:w-[535px] md:leading-[150%]">
+				<div className="absolute left-[44px] top-[900px] w-[265px] text-[20px] font-light leading-[133%] text-white md:left-[33px] md:top-[527px] md:w-[535px] md:leading-[150%]">
 					<p>
 						Durante o Super Ponto Cego, você vai entender por que trabalhar
 						mais, estudar mais e tentar novas estratégias não produz o
@@ -62,13 +62,13 @@ export default function Biography() {
 					</p>
 				</div>
 
-				<div className="absolute left-1/2 top-[996px] flex min-h-[670px] w-[360px] -translate-x-1/2 flex-col items-center rounded-[19.84px] bg-white px-[26px] py-[48px] text-[#07242C] shadow-[0_10px_30px_rgba(0,0,0,0.28)] md:left-[220px] md:top-[962px] md:min-h-[630px] md:w-[840px] md:translate-x-0 md:rounded-[14px] md:px-[72px] md:py-[58px]">
+				<div className="absolute left-1/2 top-[1130px] flex w-[360px] -translate-x-1/2 flex-col items-center rounded-[19.84px] bg-white px-[26px] pb-[48px] pt-[48px] text-[#07242C] shadow-[0_10px_30px_rgba(0,0,0,0.28)] md:left-[220px] md:top-[962px] md:min-h-[630px] md:w-[840px] md:translate-x-0 md:rounded-[14px] md:px-[72px] md:py-[58px]">
 					<h3 className="m-0 w-full text-center text-[34px] font-bold uppercase leading-[115%] text-[#C0964B] md:text-[50px] md:leading-[118%]">
 						<span className="block">Prêmios</span>
 						<span className="block">por indicações</span>
 					</h3>
 
-					<ul className="mt-[38px] w-full max-w-[290px] list-disc space-y-[18px] pl-[20px] text-left text-[17px] font-medium leading-[125%] text-[#07242C] md:mt-[44px] md:max-w-[590px] md:space-y-[20px] md:pl-[26px] md:text-[24px] md:leading-[125%]">
+					<ul className="mt-[38px] w-full max-w-[290px] list-disc space-y-[18px] pl-[20px] text-left text-[16px] font-medium leading-[125%] text-[#07242C] md:mt-[44px] md:max-w-[590px] md:space-y-[20px] md:pl-[26px] md:text-[22px] md:leading-[125%]">
 						<li>
 							<span className="font-bold">10 indicações:</span> Gravação do
 							Encontro: Destrave a Vida dos Sonhos
