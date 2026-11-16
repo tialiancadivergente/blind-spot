@@ -2,7 +2,7 @@ import { getTagIdByTemperature } from "./temperature-utils";
 
 export const LEAD_TRACK_CONFIG = {
   launch: "opc",
-  season: "ago26",
+  season: "nov26",
   tag_id: (temperature: string | null | undefined): string => {
     if (!temperature) {
       return "";

@@ -2,17 +2,17 @@ export const DEFAULT_QUEST_FORM_VERSION_ID =
   "c0909c2f-4bb6-49fe-8fac-7153076f6781";
 
 const QUEST_WHATSAPP_URL_BY_TEMPERATURE = {
-  f: "https://sendflow.click/i/superopc-2908-org",
-  org: "https://sendflow.click/i/superopc-2908-org",
-  m: "https://sendflow.click/i/superopc-2908-org",
-  q: "https://sendflow.click/i/superopc-2908-org",
-  t: "https://sendflow.click/i/superopc-2908-org",
+  f: "https://sendflow.click/i/opc1212-cap-traf",
+  org: "https://sendflow.click/i/opc1212-cap",
+  m: "https://sendflow.click/i/opc1212-cap-traf",
+  q: "https://sendflow.click/i/opc1212-cap-traf",
+  t: "https://sendflow.click/i/opc1212-cap-traf",
 } as const;
 
 const QUEST_WHATSAPP_URL_BY_REGION = {
-  latam: "https://sendflow.click/i/orolatamago26",
-  eua: "https://sendflow.click/i/oroamago26",
-  pt: "https://sendflow.click/i/oroeurago26",
+  latam: "https://sendflow.click/i/opc1212-cap-traf",
+  eua: "https://sendflow.click/i/opc1212-cap-traf",
+  pt: "https://sendflow.click/i/opc1212-cap-traf",
 } as const;
 
 type QuestTesteTemperatureKey = keyof typeof QUEST_WHATSAPP_URL_BY_TEMPERATURE;
