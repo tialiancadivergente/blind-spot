@@ -19,8 +19,8 @@ const GoogleTagManager = () => {
       ? params.temperature[0]
       : params.temperature;
 
-    const validVersion = version === "v11" || version === "v12";
-    const validTemperature = ["f", "q", "m", "t"].includes(temperature ?? "");
+    const validVersion = version === "v5" || version === "v11" || version === "v12";
+    const validTemperature = ["f", "q", "m", "t", "i"].includes(temperature ?? "");
 
     const gtmId = validVersion && validTemperature ? "GTM-MHC745NZ" : "";
 
