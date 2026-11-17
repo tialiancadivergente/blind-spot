@@ -164,8 +164,8 @@ export default function HeroSection(_props: ContainerProps) {
               </h2>
 
               <p className="mt-6 max-w-[460px] text-[14px] leading-[1.7] text-[#C8D7CE] md:text-[16px]">
-                Garanta seu acesso às duas imersões por um valor
-                especial e economize R$ 48.
+                Aproveite uma condição exclusiva para participar
+                das duas imersões por um valor especial.
               </p>
 
               <div className="mt-7 flex flex-wrap gap-3">
@@ -208,9 +208,9 @@ export default function HeroSection(_props: ContainerProps) {
                 </p>
               </div>
 
-              <div className="rounded-[12px] bg-[#D6A439]/15 px-4 py-3 text-center">
-                <p className="text-[13px] font-bold text-[#E8BE59]">
-                  VOCÊ ECONOMIZA R$ 48
+              <div className="rounded-[12px] border border-[#D6A439]/30 bg-[#D6A439]/15 px-4 py-3 text-center">
+                <p className="text-[15px] font-extrabold uppercase tracking-[0.08em] text-[#E8BE59]">
+                  24% DE DESCONTO
                 </p>
               </div>
 
