@@ -42,7 +42,7 @@ export default function Biography() {
 					</p>
 				</div>
 
-				<div className="absolute left-[24px] right-[24px] top-[64px] max-w-[356.57px] md:left-[30px] md:right-auto md:top-[818px] md:w-[356.57px] md:max-w-none">
+				<div className="absolute left-[24px] right-[24px] top-[24px] max-w-[356.57px] md:left-[30px] md:right-auto md:top-[818px] md:w-[356.57px] md:max-w-none">
 					<p className="m-0 [font-family:'Spectral',serif] text-[23.85px] font-normal leading-[1.15] tracking-normal text-[#07242C] md:text-[#E5E1D1]">
 						<strong className="font-bold">
 							Toda quarta-feira você me vê fazendo o que a maioria não tem
@@ -52,11 +52,11 @@ export default function Biography() {
 						conseguiram chegar onde queriam.
 					</p>
 
-					<p className="mt-[35px] [font-family:'Spectral',serif] text-[35.15px] font-bold italic leading-[1.15] tracking-normal text-[#07242C] md:absolute md:left-0 md:top-[205px] md:mt-0 md:w-[361px] md:text-[#E5E1D1]">
+					<p className="mt-[26px] [font-family:'Spectral',serif] text-[35.15px] font-bold italic leading-[1.15] tracking-normal text-[#07242C] md:absolute md:left-0 md:top-[205px] md:mt-0 md:w-[361px] md:text-[#E5E1D1]">
 						Cases reais. Sem replay.
 					</p>
 
-					<p className="mt-[18px] [font-family:'Raleway',sans-serif] text-[19.54px] font-normal leading-[1.35] tracking-normal text-[#07242C] [font-variant-numeric:lining-nums_proportional-nums] md:absolute md:left-0 md:top-[282px] md:mt-0 md:w-[356.57px] md:text-[#E5E1D1]">
+					<p className="mt-[12px] [font-family:'Raleway',sans-serif] text-[19.54px] font-normal leading-[1.35] tracking-normal text-[#07242C] [font-variant-numeric:lining-nums_proportional-nums] md:absolute md:left-0 md:top-[282px] md:mt-0 md:w-[356.57px] md:text-[#E5E1D1]">
 						Quem está ao vivo está comprometido com o próprio crescimento.
 						E são pessoas assim que mais avançam com esse conteúdo.
 					</p>

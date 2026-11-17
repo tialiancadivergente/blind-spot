@@ -30,8 +30,8 @@ export default function HeroSection({
 		>
 			<div className="relative mx-auto flex h-full w-full max-w-[1280px] flex-col items-center md:block">
 				<div className="relative mt-[64px] flex w-full flex-col items-start px-[24px] md:absolute md:left-0 md:top-[72px] md:mt-0 md:w-auto md:px-0">
-					<div className="w-[203px] whitespace-nowrap [font-family:'Spectral',serif] text-[23.59px] font-bold leading-[1.1] text-white md:w-[243px] md:text-[28px]">
-						O FIM DO <span className="italic text-[#C0964B]">ACASO</span>
+					<div className="w-max whitespace-nowrap [font-family:'Spectral',serif] text-[23.59px] font-bold leading-[1.1] text-white md:text-[28px]">
+						Me Empresta sua <span className="text-[#C0964B]">Vida</span>
 					</div>
 
 					<div className="mt-[16px] flex items-center gap-[8px] md:mt-[18px]">
@@ -65,7 +65,7 @@ export default function HeroSection({
 					/>
 				</div>
 
-				<div className="relative mt-[30px] w-[calc(100%-40px)] max-w-[350px] text-left md:hidden">
+				<div className="relative mt-[30px] w-[calc(100%-40px)] max-w-[350px] -translate-y-[20px] text-left md:hidden">
 					<h2 className="m-0 [font-family:'Spectral',serif] text-[30px] leading-[1.15] tracking-normal text-white">
 						<strong className="font-bold">
 							Você já está há algum tempo tentando ir mais longe.
