@@ -15,4 +15,7 @@ export const PHONE_DDI_OPTIONS = [
   { value: "+54", label: "🇦🇷 +54" },
   { value: "+56", label: "🇨🇱 +56" },
   { value: "+57", label: "🇨🇴 +57" },
+  { value: "+593", label: "🇪🇨 +593" },
+  { value: "+47", label: "🇳🇴 +47" },
+  { value: "+41", label: "🇨🇭 +41" },
 ] as const;
