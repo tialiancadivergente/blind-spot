@@ -93,7 +93,7 @@ export default function HeroSection(_props: ContainerProps) {
           </article>
 
           <article className="flex min-h-[280px] overflow-hidden rounded-[22px] border border-[#E3DFD4] bg-[#F8F7F2] text-[#172820] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div className="flex w-[88px] shrink-0 flex-col items-center justify-center bg-[#AC482E] px-2 text-white sm:w-[115px] md:w-[125px]">
+            <div className="flex w-[88px] shrink-0 flex-col items-center justify-center bg-[#006D71] px-2 text-white sm:w-[115px] md:w-[125px]">
               <span className="font-serif text-[55px] leading-none tracking-[-0.08em] md:text-[75px]">
                 28
               </span>
@@ -107,13 +107,13 @@ export default function HeroSection(_props: ContainerProps) {
 
             <div className="flex min-w-0 flex-1 flex-col justify-between p-5 sm:p-7 md:p-8">
               <div>
-                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#AC482E] md:text-[12px]">
+                <p className="mb-4 text-[10px] font-bold uppercase tracking-[0.25em] text-[#006D71] md:text-[12px]">
                   IMERSÃO 02
                 </p>
 
                 <h2 className="font-serif text-[30px] leading-[1.05] tracking-[-0.05em] sm:text-[36px] lg:text-[43px]">
                   Permissão para
-                  <span className="block italic text-[#AC482E]">
+                  <span className="block italic text-[#006D71]">
                     Emagrecer
                   </span>
                 </h2>
@@ -131,7 +131,7 @@ export default function HeroSection(_props: ContainerProps) {
 
                 <a
                   href="https://pay.aliancadivergente.com.br/6SQ4I0NP"
-                  className="inline-flex min-h-[46px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#AC482E] px-5 text-[11px] font-bold uppercase tracking-[0.08em] text-white transition-all hover:bg-[#8E3925]"
+                  className="inline-flex min-h-[46px] items-center justify-center gap-2 whitespace-nowrap rounded-full bg-[#006D71] px-5 text-[11px] font-bold uppercase tracking-[0.08em] text-white transition-all hover:brightness-110"
                 >
                   QUERO ESSA
                   <span aria-hidden="true" className="text-lg">
