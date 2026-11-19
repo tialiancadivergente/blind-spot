@@ -224,6 +224,99 @@ export default function HeroSection(_props: ContainerProps) {
           </div>
         </article>
 
+        <div className="mt-14 md:mt-20">
+          <div className="mb-7 text-center">
+            <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.25em] text-[#C0964B]">
+              INGRESSOS INDIVIDUAIS
+            </p>
+            <h2 className="font-serif text-[32px] leading-tight tracking-[-0.04em] text-white sm:text-[40px]">
+              Valores para <span className="italic text-[#C0964B]">não aliados</span>
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
+            <article className="flex flex-col justify-between rounded-[22px] border border-[#C0964B]/50 bg-[#F8F7F2] p-6 text-[#172820] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8">
+              <div>
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                  <span className="rounded-full border border-[#C0964B]/40 bg-[#C0964B]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#9A7334]">
+                    NÃO ALIADO
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#758078]">
+                    21 NOV · SÁBADO
+                  </span>
+                </div>
+
+                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#C0964B]">
+                  IMERSÃO 01
+                </p>
+
+                <h3 className="font-serif text-[34px] leading-[1.05] tracking-[-0.05em] sm:text-[43px]">
+                  Permissão para
+                  <span className="block italic text-[#C0964B]">
+                    Enriquecer
+                  </span>
+                </h3>
+              </div>
+
+              <div className="mt-8 border-t border-[#DDDCD4] pt-6">
+                <p className="mb-2 text-[12px] text-[#758078]">
+                  Valor individual para não aliados
+                </p>
+                <p className="font-serif text-[42px] font-bold leading-none tracking-[-0.04em]">
+                  R$ 399<span className="text-[23px]">,00</span>
+                </p>
+
+                <a
+                  href="https://pay.aliancadivergente.com.br/8HSYJRCO"
+                  className="mt-6 flex min-h-[50px] w-full items-center justify-center rounded-full bg-[#C0964B] px-5 py-3 text-center text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-all hover:brightness-110"
+                >
+                  QUERO PARTICIPAR
+                </a>
+              </div>
+            </article>
+
+            <article className="flex flex-col justify-between rounded-[22px] border border-[#006D71]/50 bg-[#F8F7F2] p-6 text-[#172820] transition-all duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-8">
+              <div>
+                <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+                  <span className="rounded-full border border-[#006D71]/30 bg-[#006D71]/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-[#006D71]">
+                    NÃO ALIADO
+                  </span>
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#758078]">
+                    28 NOV · SÁBADO
+                  </span>
+                </div>
+
+                <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.2em] text-[#006D71]">
+                  IMERSÃO 02
+                </p>
+
+                <h3 className="font-serif text-[34px] leading-[1.05] tracking-[-0.05em] sm:text-[43px]">
+                  Permissão para
+                  <span className="block italic text-[#006D71]">
+                    Emagrecer
+                  </span>
+                </h3>
+              </div>
+
+              <div className="mt-8 border-t border-[#DDDCD4] pt-6">
+                <p className="mb-2 text-[12px] text-[#758078]">
+                  Valor individual para não aliados
+                </p>
+                <p className="font-serif text-[42px] font-bold leading-none tracking-[-0.04em]">
+                  R$ 399<span className="text-[23px]">,00</span>
+                </p>
+
+                <a
+                  href="https://pay.aliancadivergente.com.br/F329WNOC"
+                  className="mt-6 flex min-h-[50px] w-full items-center justify-center rounded-full bg-[#006D71] px-5 py-3 text-center text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-all hover:brightness-110"
+                >
+                  QUERO PARTICIPAR
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+
         <footer className="mt-10 border-t border-white/15 pt-6 text-center">
           <p className="text-[12px] tracking-[0.05em] text-[#A8B9AE]">
             Imersões Aliança Divergente · Novembro de 2026
